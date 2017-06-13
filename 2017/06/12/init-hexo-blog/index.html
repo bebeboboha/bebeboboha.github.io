@@ -1,0 +1,743 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="執行環境：創造與提升(Hoisting) 在同一個執行環境中，會先將使用到的變數存至記憶體，例如 123456b(); // 顯示 Called b!console.log(a); // 顯示 undefinedvar a = &amp;apos;Hello World!&amp;apos;;function b() &amp;#123;    console.log(&amp;apos;Called b!&amp;apos;);&amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js 奇怪部分 - part 1">
+<meta property="og:url" content="http://yoursite.com/2017/06/12/init-hexo-blog/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="執行環境：創造與提升(Hoisting) 在同一個執行環境中，會先將使用到的變數存至記憶體，例如 123456b(); // 顯示 Called b!console.log(a); // 顯示 undefinedvar a = &amp;apos;Hello World!&amp;apos;;function b() &amp;#123;    console.log(&amp;apos;Called b!&amp;apos;);&amp;#1">
+<meta property="og:updated_time" content="2017-06-12T06:25:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Js 奇怪部分 - part 1">
+<meta name="twitter:description" content="執行環境：創造與提升(Hoisting) 在同一個執行環境中，會先將使用到的變數存至記憶體，例如 123456b(); // 顯示 Called b!console.log(a); // 顯示 undefinedvar a = &amp;apos;Hello World!&amp;apos;;function b() &amp;#123;    console.log(&amp;apos;Called b!&amp;apos;);&amp;#1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/12/init-hexo-blog/"/>
+
+
+
+
+
+  <title>Js 奇怪部分 - part 1 | Hexo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/init-hexo-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Js 奇怪部分 - part 1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-12T14:20:27+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>執行環境：創造與提升(Hoisting)</h2>
+<p>在同一個執行環境中，會先將使用到的變數存至記憶體，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">b(); // 顯示 Called b!</div><div class="line">console.log(a); // 顯示 undefined</div><div class="line">var a = &apos;Hello World!&apos;;</div><div class="line">function b() &#123;</div><div class="line">    console.log(&apos;Called b!&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>函數b定義的內容會先存至記憶體，所以雖然定義寫在後面，但在前面也可以正確的呼叫</p>
+<p>變數 a 的定義寫在後面，雖然可以呼叫，但卻顯示 undefined<br>
+(如果後面沒有 var a 的話，使用 console.log(a) 會出現警告: a is not defined)</p>
+<p>在使用等號賦值的情況下，只會先將變數放至記憶體<br>
+再依執行順序將等號的值填進去</p>
+<h2>函數、環境與變數環境</h2>
+<p>在函數中的程式會建立一個新的執行環境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function b() &#123;</div><div class="line">    var myVar;</div><div class="line">    console.log(myVar);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function a() &#123;</div><div class="line">    var myVar = 2; </div><div class="line">    console.log(myVar);    </div><div class="line">    b();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var myVar = 1;</div><div class="line">console.log(myVar); // 顯示 1</div><div class="line">a(); // 顯示 2 然後顯示 undefined</div><div class="line">console.log(myVar); //顯示 1</div></pre></td></tr></table></figure>
+<p>上面的例子先顯示了全域變數 myVar = 1;<br>
+然後執行 a()，在函數a中有自己的執行環境，建立了一個函數a中的 myVar = 2;<br>
+接著在函數a中執行b()，在函數b中也建立一個 myVar = undefined<br>
+最後回到全域環境，此時顯示 myVar 的值還是一開始全域環境給的 1<br>
+不會被函數a或函數b給改掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function b() &#123;</div><div class="line">    //var myVar; //不使用 var 建立變數時   </div><div class="line">    console.log(myVar);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function a() &#123;</div><div class="line">    var myVar = 2;</div><div class="line">    console.log(myVar);</div><div class="line">    b();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var myVar = 1;</div><div class="line">console.log(myVar); // 顯示 1</div><div class="line">a(); // 顯示 2 然後顯示 1</div><div class="line">console.log(myVar); //顯示 1</div></pre></td></tr></table></figure>
+<p>若是在函數b中，不使用 var 建立 myVar 的話<br>
+此時在函數b中的 console.log(myVar) 會顯示全域時給的 1<br>
+而不是函數a中給的2</p>
+<p>當函數中使用到沒有定義的變數時，會接著到外部環境尋找<br>
+而函數b的外部環境，是依照函數定義的地方來決定，而不是執行的地方<br>
+函數b是在全域環境定義的，所以函數b的外部環境為全域環境，而不是函數a</p>
+<p>這就是JS的詞彙環境(Lexical Environments) 特性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function a() &#123;</div><div class="line">    function b() &#123;</div><div class="line">        //var myVar; //不使用 var 建立變數時    </div><div class="line">        console.log(myVar);</div><div class="line">    &#125;</div><div class="line">    var myVar = 2;    </div><div class="line">    console.log(myVar);</div><div class="line">    b();</div><div class="line">&#125;</div><div class="line"></div><div class="line">var myVar = 1;</div><div class="line">console.log(myVar); // 顯示 1</div><div class="line">a(); // 顯示 2 然後顯示 2</div><div class="line">console.log(myVar); //顯示 1</div></pre></td></tr></table></figure>
+<p>此時函數b的定義寫在函數a的執行環境了<br>
+所以當呼叫函數b裡的 console.log(myVar); 時<br>
+因為函數b的執行環境沒有 var myVar<br>
+會到函數b的外部環境尋找，而函數b的外部環境為函數a的執行環境<br>
+所以會顯示在函數a裡設定的 2</p>
+<h2>關於非同步回呼(Asynchronous Callbacks)</h2>
+<p>JS是一個單執行緒同步的程式，那是如何達到非同步執行的效果呢？<br>
+在瀏覽器中除了執行JS外，還有執行許多事件像是介面控制、網路傳輸等<br>
+只看JS本身的話是同步的，但其他事件是可以非同步執行的<br>
+當有其他事件發生，例如滑鼠點擊，需要呼叫JS程式的時候<br>
+會先將事件放在事件佇列(Event Queue)<br>
+當JS將執行環境的程式都完成後，就會從事件佇列取一個事件放進執行環境</p>
+<p>以下程式測試看看當執行環境跑一個需要三秒的程式時，<br>
+點擊事件是否能在三秒結束前執行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// long running function</div><div class="line">function waitThreeSeconds() &#123;</div><div class="line">    var ms = 3000 + new Date().getTime();</div><div class="line">    while (new Date() &lt; ms)&#123;&#125;</div><div class="line">    console.log(&apos;finished function&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">function clickHandler() &#123;</div><div class="line">    console.log(&apos;click event!&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// listen for the click event</div><div class="line">document.addEventListener(&apos;click&apos;, clickHandler);</div><div class="line"></div><div class="line">waitThreeSeconds();</div><div class="line">console.log(&apos;finished execution&apos;);</div></pre></td></tr></table></figure>
+<p>執行此程式，並在 ‘finished function’ 出現前點擊頁面<br>
+執行結果為<br>
+’finished function’<br>
+‘finished execution’<br>
+‘click event!’</p>
+<p>點擊事件只會在 waitThreeSeconds() 執行完成<br>
+並且執行完全域的 console.log(‘finished execution’);<br>
+之後才會發生</p>
+<h2>比較運算子</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(1 &lt; 2 &lt; 3); // 顯示 true</div><div class="line">console.log(3 &lt; 2 &lt; 1); // 顯示 true</div></pre></td></tr></table></figure>
+<p>第一行好像合理，但為何第二行也是 true 呢？</p>
+<p>因為 &lt; 運算子的相依性為左到右， 3 &lt; 2 會先輸出 false，變成 false &lt; 1<br>
+而 false 會強制型轉為數字 0，變成 0 &lt; 1<br>
+所以最後會輸入 true</p>
+<p>可以使用 Number() 這個內建函數測試強制型轉為數字會變什麼</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Number(true);  // 輸出 1</div><div class="line">Number(false); // 輸出 0</div><div class="line">Number(&apos;3&apos;);   // 輸出 3</div><div class="line">Number(undefined) // 輸出 NaN</div><div class="line">Number(null)      // 輸出 0</div></pre></td></tr></table></figure>
+<p>NaN 不是個型本型別，代表有個東西無法轉成數值型別的結果<br>
+undefined 無法轉為數值，但 null 卻可以，容易造成未預期的結果</p>
+<p>使用比較運算子，尤其是==時，容易出現未預期的結果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&quot;3&quot; == 3    // 輸出 true</div><div class="line">false == 0  // 輸出 true</div><div class="line">null == 0   // 輸出 false</div><div class="line">null &lt; 1    // 輸出 true</div><div class="line">&quot;&quot; == 0     // 輸出 true</div><div class="line">&quot;&quot; == false // 輸出 true</div></pre></td></tr></table></figure>
+<p>所以沒特別需求時，要比較變數是否相同時一律改用 ===<br>
+強制型別相同且值也相同時才會輸出 true</p>
+<p>要判斷不相等時改用 !==</p>
+<h2>預設值</h2>
+<p>當函數需要輸入值，但呼叫的時候沒有輸入的時候，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function greet(name)&#123;</div><div class="line">    console.log(&apos;Hello &apos; + name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet(&apos;Tony&apos;);// 顯示 Hello Tony </div><div class="line">greet();      // 顯示 Hello undefined</div></pre></td></tr></table></figure>
+<p>沒有給輸入值時，JS不會出現錯誤<br>
+name就變成一個有建立但沒有賦值的變數，預設的值就是 undefined<br>
+但 undefined 被轉為字串 ‘undefined’ 顯示出來，不是我們想要的結果</p>
+<p>如果想要在JS函數的輸入值設定預設值的話，可以這樣寫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function greet(name)&#123;</div><div class="line">    name = name || &apos;&lt;Your name here&gt;&apos;;</div><div class="line">    console.log(&apos;Hello &apos; + name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet(&apos;Tony&apos;);// 顯示 Hello Tony </div><div class="line">greet();      // 顯示 Hello &lt;Your name here&gt;</div></pre></td></tr></table></figure>
+<p>這是利用了 || 運算子的特殊行為<br>
+當輸入了兩個可以被轉型為boolean的值，會輸出第一個被轉型為true的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">undefined || &quot;hello&quot;  // 輸出 &quot;hello&quot;</div><div class="line">&quot;hi&quot; || &quot;hello&quot;       // 輸出 &quot;hi&quot;</div><div class="line">0 || 1                // 輸出 1</div><div class="line">null || &quot;hello&quot;       // 輸出 &quot;hello&quot;</div><div class="line">&quot;&quot; || &quot;hello&quot;         // 輸出 &quot;hello&quot;</div></pre></td></tr></table></figure>
+<p>要注意輸入值若是數字 0 的時候也會被當成未輸入</p>
+<h2>JS轉換JSON</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var objectLiteral = &#123;</div><div class="line">    firstname: &quot;Knuckles&quot;,</div><div class="line">    isMember: true</div><div class="line">&#125;</div><div class="line">// 將JS物件轉為JSON字串</div><div class="line">var jsonString = JSON.stringify(objectLiteral);</div><div class="line">console.log(jsonString);</div><div class="line"></div><div class="line">//將JSON字串轉為JS物件</div><div class="line">var jsObject = JSON.parse(jsonString);</div><div class="line">console.log(jsObject);</div></pre></td></tr></table></figure>
+<p>JS有內建函式可以很容易的轉換兩種資料</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/12/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/12/init-hexo-blog-1/" rel="prev" title="Hexo 從無到發佈第一篇文章">
+                Hexo 從無到發佈第一篇文章 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">執行環境：創造與提升(Hoisting)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">函數、環境與變數環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">關於非同步回呼(Asynchronous Callbacks)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">比較運算子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">預設值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">JS轉換JSON</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

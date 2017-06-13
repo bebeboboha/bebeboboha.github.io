@@ -1,0 +1,769 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Hexo 從無到發佈第一篇文章 內容包含:  安裝程式 更換主題 佈署 新增文章  初衷 這是第一篇新部落格的建置困難排除文章。 希望可以提供給想使用hexo的朋友們，提供一些降低阻力的力量。  撰文環境: Ubuntu 16.04 LTS 佈署環境: Github  已安裝的必要套件  git nvm -&amp;gt; node.js  安裝程式 基本上照著官方文件[1]上的步驟，就可以安裝了。在此節">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 從無到發佈第一篇文章">
+<meta property="og:url" content="http://yoursite.com/2017/06/12/init-hexo-blog-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo 從無到發佈第一篇文章 內容包含:  安裝程式 更換主題 佈署 新增文章  初衷 這是第一篇新部落格的建置困難排除文章。 希望可以提供給想使用hexo的朋友們，提供一些降低阻力的力量。  撰文環境: Ubuntu 16.04 LTS 佈署環境: Github  已安裝的必要套件  git nvm -&amp;gt; node.js  安裝程式 基本上照著官方文件[1]上的步驟，就可以安裝了。在此節">
+<meta property="og:updated_time" content="2017-06-12T07:20:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo 從無到發佈第一篇文章">
+<meta name="twitter:description" content="Hexo 從無到發佈第一篇文章 內容包含:  安裝程式 更換主題 佈署 新增文章  初衷 這是第一篇新部落格的建置困難排除文章。 希望可以提供給想使用hexo的朋友們，提供一些降低阻力的力量。  撰文環境: Ubuntu 16.04 LTS 佈署環境: Github  已安裝的必要套件  git nvm -&amp;gt; node.js  安裝程式 基本上照著官方文件[1]上的步驟，就可以安裝了。在此節">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/12/init-hexo-blog-1/"/>
+
+
+
+
+
+  <title>Hexo 從無到發佈第一篇文章 | Hexo</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/init-hexo-blog-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo 從無到發佈第一篇文章</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-12T15:20:19+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1>Hexo 從無到發佈第一篇文章</h1>
+<p>內容包含:</p>
+<ul>
+<li>安裝程式</li>
+<li>更換主題</li>
+<li>佈署</li>
+<li>新增文章</li>
+</ul>
+<h2>初衷</h2>
+<p>這是第一篇新部落格的建置困難排除文章。<br>
+希望可以提供給想使用hexo的朋友們，提供一些降低阻力的力量。</p>
+<blockquote>
+<p>撰文環境: Ubuntu 16.04 LTS<br>
+佈署環境: Github</p>
+</blockquote>
+<p><strong>已安裝的必要套件</strong></p>
+<ul>
+<li>git</li>
+<li>nvm -&gt; node.js</li>
+</ul>
+<h2>安裝程式</h2>
+<p>基本上照著官方文件<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>上的步驟，就可以安裝了。在此節錄重點</p>
+<h3>要先安裝</h3>
+<p>先安裝好git, node.js(官網建議透過<a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>安裝)</p>
+<h3>安裝 hexo</h3>
+<p>這次的主角<br>
+安裝 <code>hexo</code><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli</span></div></pre></td></tr></table></figure>
+<h2>更換主題</h2>
+<h3>官網教學</h3>
+<p>Hexo的主題更換，理論上確實是非常簡單的。<br>
+<a href="https://hexo.io/zh-tw/docs/themes.html" target="_blank" rel="external">官網的教學</a>說明如下</p>
+<blockquote>
+<p>「打造 Hexo 主題非常容易，您只要在 themes 資料夾內，新增一個資料夾，並修改 _config.yml 內的 theme 設定，即可切換主題。一個主題可能會有以下的結構：」</p>
+</blockquote>
+<p>簡要的說，就是四個步驟:</p>
+<ol>
+<li>在 themes 資料夾內，新增一個資料夾</li>
+<li><code>git clone</code> 一份主題</li>
+<li>修改 <code>_config.yml</code> 內的 <code>theme</code> 設定</li>
+<li>完成</li>
+</ol>
+<h3>實戰一次</h3>
+<p>但是，實際上，隨著主題複雜度或設定，有著不同的難度呢</p>
+<ol>
+<li>到<a href="https://hexo.io/themes/" target="_blank" rel="external">官網</a>選主題</li>
+<li>在 <code>$hexo/theme</code> <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 目錄下，下指令<code>$ git clone 主題路徑 &lt;指定的目錄名稱&gt;</code>就會安裝到你指定的目錄名稱<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>
+ex:<br>
+<code>$ git clone https://github.com/nameoverflow/hexo-theme-icalm.git icalm</code></li>
+<li>安裝該主題下的子模組<br>
+icalm 主題有使用套件，而設定成git 的子模組。<br>
+進入icalm 目錄，下指令初始化子模組<br>
+<code>$ git submodule update --init --recursive</code></li>
+<li>清除先前已生成的檔案<sup class="footnote-ref"><a href="#fn2" id="fnref2:1">[2:1]</a></sup><sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> (已有主題渲染內容的檔案)<br>
+<code>$ hexo clean</code></li>
+<li>生成渲染檔案<sup class="footnote-ref"><a href="#fn2" id="fnref2:2">[2:2]</a></sup><br>
+<code>$ hexo generate</code></li>
+<li>在瀏覽器看結果<sup class="footnote-ref"><a href="#fn2" id="fnref2:3">[2:3]</a></sup>，預設 <code>http://localhost:4000</code><br>
+<code>$ hexo server</code></li>
+</ol>
+<h2>新增文章</h2>
+<p>未來最常重複的就是從這一步開始。</p>
+<p>新增文章，要下指令，生成一個檔案。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new init_hexo_blog</span></div><div class="line">INFO  Created: $hexo/source/_posts/init-hexo-blog.md</div></pre></td></tr></table></figure>
+<p>再該檔案，貼上<code>markdown</code>的source code</p>
+<p>就是這麼容易。</p>
+<p>不過渲染出來的文章，不是這麼理想，也許未來研究怎麼換渲染器之後，再來寫一篇。</p>
+<blockquote>
+<p>在此就先不管，如果你覺得這一篇醜醜，一定是還沒有換渲染器!![color=red]</p>
+</blockquote>
+<h2>佈署</h2>
+<p>以<a href="https://hexo.io/zh-tw/docs/deployment.html" target="_blank" rel="external">官網</a>的介紹，佈署確實簡單。</p>
+<p>無痛的步驟如下<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup><sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
+<ol>
+<li>安裝<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a> <sup class="footnote-ref"><a href="#fn6" id="fnref6:1">[6:1]</a></sup><br>
+<code>$ npm install hexo-deployer-git --save</code></li>
+<li>設定<code>_config.yml</code>，<code>type</code>要用<code>git</code>，不是<code>github</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
+<ol start="3">
+<li>下指令「生成檔案並上傳頁面」，hexo設計的指令，很靈活。在此有三種指令可以使用</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">只有佈署</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy</span></div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">產生靜態檔之後佈署</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo generate -d</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo generate --deploy</span></div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">佈署前先產生靜態檔</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy -g</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy --generate</span></div></pre></td></tr></table></figure>
+<p>接下來就是到github看結果囉。</p>
+<p>也就是因為有上面的經驗，你才看得到這一頁呢！^^</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://hexo.io/zh-tw/docs/setup.html" target="_blank" rel="external">官網的安裝方式</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://hexo.io/zh-tw/docs/commands.html" target="_blank" rel="external">Hexo指令說明</a> <a href="#fnref2" class="footnote-backref">↩︎</a> <a href="#fnref2:1" class="footnote-backref">↩︎</a> <a href="#fnref2:2" class="footnote-backref">↩︎</a> <a href="#fnref2:3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>「你的hexo部落格目錄」 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>通常在github上的主題，會命名成<code>hexo-theme-主題名稱</code>。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><code>$ hexo generate</code>之後，套不上CSS，console裡無報錯。<br>
+要先下<code>$ hexo clean</code> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>錯誤訊息: <code>ERROR Deployer not found: git</code><br>
+解決方式:<br>
+<code>$ npm install hexo-deployer-git --save</code> <a href="#fnref6" class="footnote-backref">↩︎</a> <a href="#fnref6:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p><a href="https://github.com/hexojs/hexo/issues/1013" target="_blank" rel="external">升级到hexo 3.0后deploy type: github选项无效 #1013</a><br>
+檢查是否已安裝 <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/12/init-hexo-blog/" rel="next" title="Js 奇怪部分 - part 1">
+                <i class="fa fa-chevron-left"></i> Js 奇怪部分 - part 1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Hexo 從無到發佈第一篇文章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">初衷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">安裝程式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">要先安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">安裝 hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">更換主題</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">官網教學</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">實戰一次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">新增文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">佈署</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
