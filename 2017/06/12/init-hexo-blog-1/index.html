@@ -97,7 +97,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo 從無到發佈第一篇文章">
 <meta property="og:url" content="http://yoursite.com/2017/06/12/init-hexo-blog-1/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="PG的前端分享">
 <meta property="og:description" content="Hexo 從無到發佈第一篇文章 內容包含:  安裝程式 更換主題 佈署 新增文章  初衷 這是第一篇新部落格的建置困難排除文章。 希望可以提供給想使用hexo的朋友們，提供一些降低阻力的力量。  撰文環境: Ubuntu 16.04 LTS 佈署環境: Github  已安裝的必要套件  git nvm -&amp;gt; node.js  安裝程式 基本上照著官方文件[1]上的步驟，就可以安裝了。在此節">
 <meta property="og:updated_time" content="2017-06-12T07:20:42.000Z">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
 
 
 
-  <title>Hexo 從無到發佈第一篇文章 | Hexo</title>
+  <title>Hexo 從無到發佈第一篇文章 | PG的前端分享</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -173,7 +173,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">PG的前端分享</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -259,13 +259,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/init-hexo-blog-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Peggy Zhan">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="PG的前端分享">
     </span>
 
     
@@ -347,7 +347,7 @@
 <h3>安裝 hexo</h3>
 <p>這次的主角<br>
 安裝 <code>hexo</code><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli</span></div></pre></td></tr></table></figure>
 <h2>更換主題</h2>
 <h3>官網教學</h3>
 <p>Hexo的主題更換，理論上確實是非常簡單的。<br>
@@ -383,7 +383,7 @@ icalm 主題有使用套件，而設定成git 的子模組。<br>
 <h2>新增文章</h2>
 <p>未來最常重複的就是從這一步開始。</p>
 <p>新增文章，要下指令，生成一個檔案。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new init_hexo_blog</div><div class="line">INFO  Created: $hexo/source/_posts/init-hexo-blog.md</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new init_hexo_blog</span></div><div class="line">INFO  Created: $hexo/source/_posts/init-hexo-blog.md</div></pre></td></tr></table></figure>
 <p>再該檔案，貼上<code>markdown</code>的source code</p>
 <p>就是這麼容易。</p>
 <p>不過渲染出來的文章，不是這麼理想，也許未來研究怎麼換渲染器之後，再來寫一篇。</p>
@@ -402,7 +402,7 @@ icalm 主題有使用套件，而設定成git 的子模組。<br>
 <ol start="3">
 <li>下指令「生成檔案並上傳頁面」，hexo設計的指令，很靈活。在此有三種指令可以使用</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span>只有佈署</div><div class="line"><span class="meta">$</span> hexo deploy</div><div class="line"><span class="meta"></span></div><div class="line">#產生靜態檔之後佈署</div><div class="line"><span class="meta">$</span> hexo generate -d</div><div class="line"><span class="meta">$</span> hexo generate --deploy</div><div class="line"><span class="meta"></span></div><div class="line">#佈署前先產生靜態檔</div><div class="line"><span class="meta">$</span> hexo deploy -g</div><div class="line"><span class="meta">$</span> hexo deploy --generate</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">只有佈署</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy</span></div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">產生靜態檔之後佈署</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo generate -d</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo generate --deploy</span></div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">佈署前先產生靜態檔</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy -g</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy --generate</span></div></pre></td></tr></table></figure>
 <p>接下來就是到github看結果囉。</p>
 <p>也就是因為有上面的經驗，你才看得到這一頁呢！^^</p>
 <hr class="footnotes-sep">
@@ -533,8 +533,8 @@ icalm 主題有使用套件，而設定成git 的子模組。<br>
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
+               alt="Peggy Zhan" />
+          <p class="site-author-name" itemprop="name">Peggy Zhan</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
           
@@ -559,6 +559,26 @@ icalm 主題有使用套件，而設定成git 的子模組。<br>
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bebeboboha" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/chan.pei.chi" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook-official"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
           
         </div>
 
@@ -610,7 +630,7 @@ icalm 主題有使用套件，而設定成git 的子模組。<br>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Peggy Zhan</span>
 </div>
 
 
