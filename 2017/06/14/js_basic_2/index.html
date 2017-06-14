@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型 12345678910111213141516function Person(firstname,">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/06/12/hello-world/index.html">
+<meta property="og:title" content="Js 奇怪部分 - part 2">
+<meta property="og:url" content="http://yoursite.com/2017/06/14/js_basic_2/index.html">
 <meta property="og:site_name" content="PG的前端分享">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-06-13T08:55:43.000Z">
+<meta property="og:description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型 12345678910111213141516function Person(firstname,">
+<meta property="og:updated_time" content="2017-06-14T06:09:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Js 奇怪部分 - part 2">
+<meta name="twitter:description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型 12345678910111213141516function Person(firstname,">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/12/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/14/js_basic_2/"/>
 
 
 
 
 
-  <title>Hello World | PG的前端分享</title>
+  <title>Js 奇怪部分 - part 2 | PG的前端分享</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -257,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/js_basic_2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Peggy Zhan">
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Js 奇怪部分 - part 2</h1>
         
 
         <div class="post-meta">
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-12T14:12:11+08:00">
-                2017-06-12
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-14T14:08:19+08:00">
+                2017-06-14
               </time>
             
 
@@ -321,20 +321,16 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2>Quick Start</h2>
-<h3>Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3>Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3>Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3>Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1>Js 奇怪部分 - part 2</h1>
+<h2>函數建構子與「.prototype」</h2>
+<p>因為函數也是一個物件，有自己的屬性值<br>
+其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到</p>
+<p>當使用函數建構子建立一個物件時，已經設定這個物件的原型了<br>
+使用函數建構子的屬性 prototype 可以取得這個原型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstname = firstname;  </div><div class="line">    <span class="keyword">this</span>.lastname = lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子的屬性 prototype 在原型新增一個函數 getFullName</span></div><div class="line">Person.prototype.getFullName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子建立的物件都有 getFullName 可以用</span></div><div class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(john.getFullName()); <span class="comment">// 顯示 John Doe</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> jane = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(jane.getFullName()); <span class="comment">// 顯示 Jane Doe</span></div></pre></td></tr></table></figure>
+<p>在物件已建立後再使用 .prototype 新增的函數<br>
+該物件一樣可以取用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstname = firstname;</div><div class="line">    <span class="keyword">this</span>.lastname = lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 在物件已建立後才在原型上新增函數</span></div><div class="line">Person.prototype.getFormalFullName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastname + <span class="string">', '</span> + <span class="keyword">this</span>.firstname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 物件一樣可以呼叫此函數</span></div><div class="line"><span class="built_in">console</span>.log(john.getFormalFullName()); <span class="comment">// 顯示 Doe, John</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -364,7 +360,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -377,14 +373,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/12/js_basic_1/" rel="next" title="Js 奇怪部分 - part 1">
+                <i class="fa fa-chevron-left"></i> Js 奇怪部分 - part 1
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/12/js_basic_1/" rel="prev" title="Js 奇怪部分 - part 1">
-                Js 奇怪部分 - part 1 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/14/js-function-slice/" rel="prev" title="slice()、splice()、split() 傻傻分不清">
+                slice()、splice()、split() 傻傻分不清 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -525,7 +525,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Js 奇怪部分 - part 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">函數建構子與「.prototype」</span></a></li></ol></li></ol></div>
             
 
           </div>

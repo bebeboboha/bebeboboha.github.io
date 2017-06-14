@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/init-hexo-blog-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/js-function-slice/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Peggy Zhan">
@@ -273,7 +273,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/12/init-hexo-blog-1/" itemprop="url">Hexo 從無到發佈第一篇文章</a></h1>
+                <a class="post-title-link" href="/2017/06/14/js-function-slice/" itemprop="url">slice()、splice()、split() 傻傻分不清</a></h1>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-12T15:20:19+08:00">
-                2017-06-12
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-14T14:13:48+08:00">
+                2017-06-14
               </time>
             
 
@@ -322,114 +322,56 @@
       
         
           
-            <h1>Hexo 從無到發佈第一篇文章</h1>
-<p>內容包含:</p>
-<ul>
-<li>安裝程式</li>
-<li>更換主題</li>
-<li>佈署</li>
-<li>新增文章</li>
-</ul>
+            <h1>slice()、splice()、split() 傻傻分不清</h1>
 <h2>初衷</h2>
-<p>這是第一篇新部落格的建置困難排除文章。<br>
-希望可以提供給想使用hexo的朋友們，提供一些降低阻力的力量。</p>
+<p>在複習JavaScript時，常常會被很多相似的東西搞混啊！！！<br>
+特別是處理Array、String等等常用到的總是特別的難分辨<br>
+以下將介紹 slice()、splice()、split()</p>
+<h2>slice()</h2>
 <blockquote>
-<p>撰文環境: Ubuntu 16.04 LTS<br>
-佈署環境: Github</p>
+<p>The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</p>
 </blockquote>
-<p><strong>已安裝的必要套件</strong></p>
+<h3>複製開始與結束點（結束點不算）中的內容</h3>
+<p><strong>對象：</strong><br>
+可操控Array及String</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.slice()</div><div class="line">arr.slice(begin)</div><div class="line">arr.slice(begin, end)</div></pre></td></tr></table></figure>
+<p><strong>用法：</strong><br>
+begin 為開始的索引值，負數代表從後面開始算起，-1為倒數第一個元素。<br>
+end 為結束的索引值，沒有填寫時則得到arr中的所有元素。<br>
+因為是做shallow copy，所以原值不改變。</p>
+<h2>splice()</h2>
+<blockquote>
+<p>The splice() method changes the contents of an array by removing existing elements and/or adding new elements.</p>
+</blockquote>
+<h3>從Array中添加/刪除項目，回傳被刪除的項目。</h3>
+<p><strong>對象：</strong><br>
+可操控Array</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array.splice(start)</div><div class="line">array.splice(start, deleteCount)</div><div class="line">array.splice(start, deleteCount, item1, item2, ...)</div></pre></td></tr></table></figure>
+<p><strong>用法：</strong><br>
+start 增加/刪除項目的位置，負數代表從後方算起。<br>
+deleteCount 刪除的個數，如為0則不會刪除。<br>
+item… 添加的新項目。<br>
+會改變原值</p>
+<h2>split()</h2>
+<blockquote>
+<p>The split() method splits a String object into an array of strings by separating the string into substrings.</p>
+</blockquote>
+<h3>分割字串成字串組</h3>
+<p><strong>對象：</strong><br>
+可操控String</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.split(separator,howmany)</div></pre></td></tr></table></figure>
+<p><strong>用法：</strong><br>
+separator 字串符或正則表達式，從該參數指定的地方分割stringObject。<br>
+howmany 返回值的最大長度，超過該長度則不顯示。<br>
+不改變原值</p>
+<h2>結語</h2>
+<p>以上是最近在複習JavaScript常用到也容易搞混的，藉由筆記加深印象，並整理出給有相同搞混煩惱的大家，祝大家JavaSctipt路順利😂</p>
+<h2>參考資料</h2>
 <ul>
-<li>git</li>
-<li>nvm -&gt; node.js</li>
+<li>W3School JavaScript</li>
+<li>MDN Array</li>
+<li>MDN String</li>
 </ul>
-<h2>安裝程式</h2>
-<p>基本上照著官方文件<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>上的步驟，就可以安裝了。在此節錄重點</p>
-<h3>要先安裝</h3>
-<p>先安裝好git, node.js(官網建議透過<a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>安裝)</p>
-<h3>安裝 hexo</h3>
-<p>這次的主角<br>
-安裝 <code>hexo</code><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli</span></div></pre></td></tr></table></figure>
-<h2>更換主題</h2>
-<h3>官網教學</h3>
-<p>Hexo的主題更換，理論上確實是非常簡單的。<br>
-<a href="https://hexo.io/zh-tw/docs/themes.html" target="_blank" rel="external">官網的教學</a>說明如下</p>
-<blockquote>
-<p>「打造 Hexo 主題非常容易，您只要在 themes 資料夾內，新增一個資料夾，並修改 _config.yml 內的 theme 設定，即可切換主題。一個主題可能會有以下的結構：」</p>
-</blockquote>
-<p>簡要的說，就是四個步驟:</p>
-<ol>
-<li>在 themes 資料夾內，新增一個資料夾</li>
-<li><code>git clone</code> 一份主題</li>
-<li>修改 <code>_config.yml</code> 內的 <code>theme</code> 設定</li>
-<li>完成</li>
-</ol>
-<h3>實戰一次</h3>
-<p>但是，實際上，隨著主題複雜度或設定，有著不同的難度呢</p>
-<ol>
-<li>到<a href="https://hexo.io/themes/" target="_blank" rel="external">官網</a>選主題</li>
-<li>在 <code>$hexo/theme</code> <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 目錄下，下指令<code>$ git clone 主題路徑 &lt;指定的目錄名稱&gt;</code>就會安裝到你指定的目錄名稱<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><br>
-ex:<br>
-<code>$ git clone https://github.com/nameoverflow/hexo-theme-icalm.git icalm</code></li>
-<li>安裝該主題下的子模組<br>
-icalm 主題有使用套件，而設定成git 的子模組。<br>
-進入icalm 目錄，下指令初始化子模組<br>
-<code>$ git submodule update --init --recursive</code></li>
-<li>清除先前已生成的檔案<sup class="footnote-ref"><a href="#fn2" id="fnref2:1">[2:1]</a></sup><sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> (已有主題渲染內容的檔案)<br>
-<code>$ hexo clean</code></li>
-<li>生成渲染檔案<sup class="footnote-ref"><a href="#fn2" id="fnref2:2">[2:2]</a></sup><br>
-<code>$ hexo generate</code></li>
-<li>在瀏覽器看結果<sup class="footnote-ref"><a href="#fn2" id="fnref2:3">[2:3]</a></sup>，預設 <code>http://localhost:4000</code><br>
-<code>$ hexo server</code></li>
-</ol>
-<h2>新增文章</h2>
-<p>未來最常重複的就是從這一步開始。</p>
-<p>新增文章，要下指令，生成一個檔案。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo new init_hexo_blog</span></div><div class="line">INFO  Created: $hexo/source/_posts/init-hexo-blog.md</div></pre></td></tr></table></figure>
-<p>再該檔案，貼上<code>markdown</code>的source code</p>
-<p>就是這麼容易。</p>
-<p>不過渲染出來的文章，不是這麼理想，也許未來研究怎麼換渲染器之後，再來寫一篇。</p>
-<blockquote>
-<p>在此就先不管，如果你覺得這一篇醜醜，一定是還沒有換渲染器!![color=red]</p>
-</blockquote>
-<h2>佈署</h2>
-<p>以<a href="https://hexo.io/zh-tw/docs/deployment.html" target="_blank" rel="external">官網</a>的介紹，佈署確實簡單。</p>
-<p>無痛的步驟如下<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup><sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
-<ol>
-<li>安裝<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a> <sup class="footnote-ref"><a href="#fn6" id="fnref6:1">[6:1]</a></sup><br>
-<code>$ npm install hexo-deployer-git --save</code></li>
-<li>設定<code>_config.yml</code>，<code>type</code>要用<code>git</code>，不是<code>github</code></li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
-<ol start="3">
-<li>下指令「生成檔案並上傳頁面」，hexo設計的指令，很靈活。在此有三種指令可以使用</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">只有佈署</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy</span></div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">產生靜態檔之後佈署</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo generate -d</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo generate --deploy</span></div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash">佈署前先產生靜態檔</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy -g</span></div><div class="line"><span class="meta">$</span><span class="bash"> hexo deploy --generate</span></div></pre></td></tr></table></figure>
-<p>接下來就是到github看結果囉。</p>
-<p>也就是因為有上面的經驗，你才看得到這一頁呢！^^</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://hexo.io/zh-tw/docs/setup.html" target="_blank" rel="external">官網的安裝方式</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a href="https://hexo.io/zh-tw/docs/commands.html" target="_blank" rel="external">Hexo指令說明</a> <a href="#fnref2" class="footnote-backref">↩︎</a> <a href="#fnref2:1" class="footnote-backref">↩︎</a> <a href="#fnref2:2" class="footnote-backref">↩︎</a> <a href="#fnref2:3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p>「你的hexo部落格目錄」 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p>通常在github上的主題，會命名成<code>hexo-theme-主題名稱</code>。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn5" class="footnote-item"><p><code>$ hexo generate</code>之後，套不上CSS，console裡無報錯。<br>
-要先下<code>$ hexo clean</code> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p>錯誤訊息: <code>ERROR Deployer not found: git</code><br>
-解決方式:<br>
-<code>$ npm install hexo-deployer-git --save</code> <a href="#fnref6" class="footnote-backref">↩︎</a> <a href="#fnref6:1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn7" class="footnote-item"><p><a href="https://github.com/hexojs/hexo/issues/1013" target="_blank" rel="external">升级到hexo 3.0后deploy type: github选项无效 #1013</a><br>
-檢查是否已安裝 <a href="#fnref7" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 
           
         
@@ -473,7 +415,7 @@ icalm 主題有使用套件，而設定成git 的子模組。<br>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/init-hexo-blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/js_basic_2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Peggy Zhan">
@@ -492,7 +434,128 @@ icalm 主題有使用套件，而設定成git 的子模組。<br>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/12/init-hexo-blog/" itemprop="url">Js 奇怪部分 - part 1</a></h1>
+                <a class="post-title-link" href="/2017/06/14/js_basic_2/" itemprop="url">Js 奇怪部分 - part 2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-14T14:08:19+08:00">
+                2017-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>Js 奇怪部分 - part 2</h1>
+<h2>函數建構子與「.prototype」</h2>
+<p>因為函數也是一個物件，有自己的屬性值<br>
+其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到</p>
+<p>當使用函數建構子建立一個物件時，已經設定這個物件的原型了<br>
+使用函數建構子的屬性 prototype 可以取得這個原型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstname = firstname;  </div><div class="line">    <span class="keyword">this</span>.lastname = lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子的屬性 prototype 在原型新增一個函數 getFullName</span></div><div class="line">Person.prototype.getFullName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子建立的物件都有 getFullName 可以用</span></div><div class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(john.getFullName()); <span class="comment">// 顯示 John Doe</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> jane = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(jane.getFullName()); <span class="comment">// 顯示 Jane Doe</span></div></pre></td></tr></table></figure>
+<p>在物件已建立後再使用 .prototype 新增的函數<br>
+該物件一樣可以取用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstname = firstname;</div><div class="line">    <span class="keyword">this</span>.lastname = lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 在物件已建立後才在原型上新增函數</span></div><div class="line">Person.prototype.getFormalFullName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastname + <span class="string">', '</span> + <span class="keyword">this</span>.firstname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 物件一樣可以呼叫此函數</span></div><div class="line"><span class="built_in">console</span>.log(john.getFormalFullName()); <span class="comment">// 顯示 Doe, John</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/js_basic_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peggy Zhan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/21999254">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PG的前端分享">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/12/js_basic_1/" itemprop="url">Js 奇怪部分 - part 1</a></h1>
         
 
         <div class="post-meta">
@@ -823,7 +886,7 @@ name就變成一個有建立但沒有賦值的變數，預設的值就是 undefi
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
