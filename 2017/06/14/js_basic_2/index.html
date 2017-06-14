@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型 12345678910111213141516function Person(firstname,">
+<meta name="description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Js 奇怪部分 - part 2">
 <meta property="og:url" content="http://yoursite.com/2017/06/14/js_basic_2/index.html">
 <meta property="og:site_name" content="PG的前端分享">
-<meta property="og:description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型 12345678910111213141516function Person(firstname,">
-<meta property="og:updated_time" content="2017-06-14T06:09:10.000Z">
+<meta property="og:description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型">
+<meta property="og:updated_time" content="2017-06-14T06:33:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js 奇怪部分 - part 2">
-<meta name="twitter:description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型 12345678910111213141516function Person(firstname,">
+<meta name="twitter:description" content="Js 奇怪部分 - part 2 函數建構子與「.prototype」 因為函數也是一個物件，有自己的屬性值 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到 當使用函數建構子建立一個物件時，已經設定這個物件的原型了 使用函數建構子的屬性 prototype 可以取得這個原型">
 
 
 
@@ -327,6 +327,7 @@
 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到</p>
 <p>當使用函數建構子建立一個物件時，已經設定這個物件的原型了<br>
 使用函數建構子的屬性 prototype 可以取得這個原型</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstname = firstname;  </div><div class="line">    <span class="keyword">this</span>.lastname = lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子的屬性 prototype 在原型新增一個函數 getFullName</span></div><div class="line">Person.prototype.getFullName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子建立的物件都有 getFullName 可以用</span></div><div class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(john.getFullName()); <span class="comment">// 顯示 John Doe</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> jane = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(jane.getFullName()); <span class="comment">// 顯示 Jane Doe</span></div></pre></td></tr></table></figure>
 <p>在物件已建立後再使用 .prototype 新增的函數<br>
 該物件一樣可以取用</p>
@@ -457,7 +458,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -470,7 +471,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">標籤</span>
               
             </div>

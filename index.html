@@ -321,59 +321,18 @@
 
       
         
-          
-            <h1>slice()、splice()、split() 傻傻分不清</h1>
+          <h1>slice()、splice()、split() 傻傻分不清</h1>
 <h2>初衷</h2>
 <p>在複習JavaScript時，常常會被很多相似的東西搞混啊！！！<br>
 特別是處理Array、String等等常用到的總是特別的難分辨<br>
 以下將介紹 slice()、splice()、split()</p>
-<h2>slice()</h2>
-<blockquote>
-<p>The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</p>
-</blockquote>
-<h3>複製開始與結束點（結束點不算）中的內容</h3>
-<p><strong>對象：</strong><br>
-可操控Array及String</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.slice()</div><div class="line">arr.slice(begin)</div><div class="line">arr.slice(begin, end)</div></pre></td></tr></table></figure>
-<p><strong>用法：</strong><br>
-begin 為開始的索引值，負數代表從後面開始算起，-1為倒數第一個元素。<br>
-end 為結束的索引值，沒有填寫時則得到arr中的所有元素。<br>
-因為是做shallow copy，所以原值不改變。</p>
-<h2>splice()</h2>
-<blockquote>
-<p>The splice() method changes the contents of an array by removing existing elements and/or adding new elements.</p>
-</blockquote>
-<h3>從Array中添加/刪除項目，回傳被刪除的項目。</h3>
-<p><strong>對象：</strong><br>
-可操控Array</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array.splice(start)</div><div class="line">array.splice(start, deleteCount)</div><div class="line">array.splice(start, deleteCount, item1, item2, ...)</div></pre></td></tr></table></figure>
-<p><strong>用法：</strong><br>
-start 增加/刪除項目的位置，負數代表從後方算起。<br>
-deleteCount 刪除的個數，如為0則不會刪除。<br>
-item… 添加的新項目。<br>
-會改變原值</p>
-<h2>split()</h2>
-<blockquote>
-<p>The split() method splits a String object into an array of strings by separating the string into substrings.</p>
-</blockquote>
-<h3>分割字串成字串組</h3>
-<p><strong>對象：</strong><br>
-可操控String</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.split(separator,howmany)</div></pre></td></tr></table></figure>
-<p><strong>用法：</strong><br>
-separator 字串符或正則表達式，從該參數指定的地方分割stringObject。<br>
-howmany 返回值的最大長度，超過該長度則不顯示。<br>
-不改變原值</p>
-<h2>結語</h2>
-<p>以上是最近在複習JavaScript常用到也容易搞混的，藉由筆記加深印象，並整理出給有相同搞混煩惱的大家，祝大家JavaSctipt路順利😂</p>
-<h2>參考資料</h2>
-<ul>
-<li>W3School JavaScript</li>
-<li>MDN Array</li>
-<li>MDN String</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/14/js-function-slice/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -482,19 +441,19 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
 
       
         
-          
-            <h1>Js 奇怪部分 - part 2</h1>
+          <h1>Js 奇怪部分 - part 2</h1>
 <h2>函數建構子與「.prototype」</h2>
 <p>因為函數也是一個物件，有自己的屬性值<br>
 其中一個屬性叫 prototype，只有函數是用做函數建構子時才會用到</p>
 <p>當使用函數建構子建立一個物件時，已經設定這個物件的原型了<br>
 使用函數建構子的屬性 prototype 可以取得這個原型</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstname = firstname;  </div><div class="line">    <span class="keyword">this</span>.lastname = lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子的屬性 prototype 在原型新增一個函數 getFullName</span></div><div class="line">Person.prototype.getFullName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用函數建構子建立的物件都有 getFullName 可以用</span></div><div class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(john.getFullName()); <span class="comment">// 顯示 John Doe</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> jane = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>, <span class="string">'Doe'</span>);</div><div class="line"><span class="built_in">console</span>.log(jane.getFullName()); <span class="comment">// 顯示 Jane Doe</span></div></pre></td></tr></table></figure>
-<p>在物件已建立後再使用 .prototype 新增的函數<br>
-該物件一樣可以取用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.firstname = firstname;</div><div class="line">    <span class="keyword">this</span>.lastname = lastname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 在物件已建立後才在原型上新增函數</span></div><div class="line">Person.prototype.getFormalFullName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastname + <span class="string">', '</span> + <span class="keyword">this</span>.firstname;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 物件一樣可以呼叫此函數</span></div><div class="line"><span class="built_in">console</span>.log(john.getFormalFullName()); <span class="comment">// 顯示 Doe, John</span></div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/14/js_basic_2/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -603,212 +562,17 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
 
       
         
-          
-            <h2>執行環境：創造與提升(Hoisting)</h2>
+          <h2>執行環境：創造與提升(Hoisting)</h2>
 <p>在同一個執行環境中，會先將使用到的變數存至記憶體，例如</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">b(); <span class="comment">// 顯示 Called b!</span></div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 顯示 undefined</span></div><div class="line"><span class="keyword">var</span> a = <span class="string">'Hello World!'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Called b!'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>函數b定義的內容會先存至記憶體，所以雖然定義寫在後面，但在前面也可以正確的呼叫</p>
-<p>變數 a 的定義寫在後面，雖然可以呼叫，但卻顯示 undefined<br>
-(如果後面沒有 var a 的話，使用 console.log(a) 會出現警告: a is not defined)</p>
-<p>在使用等號賦值的情況下，只會先將變數放至記憶體<br>
-再依執行順序將等號的值填進去</p>
-<h2>函數、環境與變數環境</h2>
-<p>在函數中的程式會建立一個新的執行環境</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> myVar;</div><div class="line">    <span class="built_in">console</span>.log(myVar);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>; </div><div class="line">    <span class="built_in">console</span>.log(myVar);    </div><div class="line">    b();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</div><div class="line"><span class="built_in">console</span>.log(myVar); <span class="comment">// 顯示 1</span></div><div class="line">a(); <span class="comment">// 顯示 2 然後顯示 undefined</span></div><div class="line"><span class="built_in">console</span>.log(myVar); <span class="comment">//顯示 1</span></div></pre></td></tr></table></figure>
-<p>上面的例子先顯示了全域變數 myVar = 1;<br>
-然後執行 a()，在函數a中有自己的執行環境，建立了一個函數a中的 myVar = 2;<br>
-接著在函數a中執行b()，在函數b中也建立一個 myVar = undefined<br>
-最後回到全域環境，此時顯示 myVar 的值還是一開始全域環境給的 1<br>
-不會被函數a或函數b給改掉</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//var myVar; //不使用 var 建立變數時   </span></div><div class="line">    <span class="built_in">console</span>.log(myVar);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>;</div><div class="line">    <span class="built_in">console</span>.log(myVar);</div><div class="line">    b();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</div><div class="line"><span class="built_in">console</span>.log(myVar); <span class="comment">// 顯示 1</span></div><div class="line">a(); <span class="comment">// 顯示 2 然後顯示 1</span></div><div class="line"><span class="built_in">console</span>.log(myVar); <span class="comment">//顯示 1</span></div></pre></td></tr></table></figure>
-<p>若是在函數b中，不使用 var 建立 myVar 的話<br>
-此時在函數b中的 console.log(myVar) 會顯示全域時給的 1<br>
-而不是函數a中給的2</p>
-<p>當函數中使用到沒有定義的變數時，會接著到外部環境尋找<br>
-而函數b的外部環境，是依照函數定義的地方來決定，而不是執行的地方<br>
-函數b是在全域環境定義的，所以函數b的外部環境為全域環境，而不是函數a</p>
-<p>這就是JS的詞彙環境(Lexical Environments) 特性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//var myVar; //不使用 var 建立變數時    </span></div><div class="line">        <span class="built_in">console</span>.log(myVar);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>;    </div><div class="line">    <span class="built_in">console</span>.log(myVar);</div><div class="line">    b();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</div><div class="line"><span class="built_in">console</span>.log(myVar); <span class="comment">// 顯示 1</span></div><div class="line">a(); <span class="comment">// 顯示 2 然後顯示 2</span></div><div class="line"><span class="built_in">console</span>.log(myVar); <span class="comment">//顯示 1</span></div></pre></td></tr></table></figure>
-<p>此時函數b的定義寫在函數a的執行環境了<br>
-所以當呼叫函數b裡的 console.log(myVar); 時<br>
-因為函數b的執行環境沒有 var myVar<br>
-會到函數b的外部環境尋找，而函數b的外部環境為函數a的執行環境<br>
-所以會顯示在函數a裡設定的 2</p>
-<h2>關於非同步回呼(Asynchronous Callbacks)</h2>
-<p>JS是一個單執行緒同步的程式，那是如何達到非同步執行的效果呢？<br>
-在瀏覽器中除了執行JS外，還有執行許多事件像是介面控制、網路傳輸等<br>
-只看JS本身的話是同步的，但其他事件是可以非同步執行的<br>
-當有其他事件發生，例如滑鼠點擊，需要呼叫JS程式的時候<br>
-會先將事件放在事件佇列(Event Queue)<br>
-當JS將執行環境的程式都完成後，就會從事件佇列取一個事件放進執行環境</p>
-<p>以下程式測試看看當執行環境跑一個需要三秒的程式時，<br>
-點擊事件是否能在三秒結束前執行</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// long running function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">waitThreeSeconds</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ms = <span class="number">3000</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">    <span class="keyword">while</span> (<span class="keyword">new</span> <span class="built_in">Date</span>() &lt; ms)&#123;&#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'finished function'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clickHandler</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'click event!'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// listen for the click event</span></div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>, clickHandler);</div><div class="line"></div><div class="line">waitThreeSeconds();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'finished execution'</span>);</div></pre></td></tr></table></figure>
-<p>執行此程式，並在 ‘finished function’ 出現前點擊頁面<br>
-執行結果為<br>
-’finished function’<br>
-‘finished execution’<br>
-‘click event!’</p>
-<p>點擊事件只會在 waitThreeSeconds() 執行完成<br>
-並且執行完全域的 console.log(‘finished execution’);<br>
-之後才會發生</p>
-<h2>比較運算子</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &lt; <span class="number">2</span> &lt; <span class="number">3</span>); <span class="comment">// 顯示 true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &lt; <span class="number">2</span> &lt; <span class="number">1</span>); <span class="comment">// 顯示 true</span></div></pre></td></tr></table></figure>
-<p>第一行好像合理，但為何第二行也是 true 呢？</p>
-<p>因為 &lt; 運算子的相依性為左到右， 3 &lt; 2 會先輸出 false，變成 false &lt; 1<br>
-而 false 會強制型轉為數字 0，變成 0 &lt; 1<br>
-所以最後會輸入 true</p>
-<p>可以使用 Number() 這個內建函數測試強制型轉為數字會變什麼</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Number</span>(<span class="literal">true</span>);  <span class="comment">// 輸出 1</span></div><div class="line"><span class="built_in">Number</span>(<span class="literal">false</span>); <span class="comment">// 輸出 0</span></div><div class="line"><span class="built_in">Number</span>(<span class="string">'3'</span>);   <span class="comment">// 輸出 3</span></div><div class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>) <span class="comment">// 輸出 NaN</span></div><div class="line"><span class="built_in">Number</span>(<span class="literal">null</span>)      <span class="comment">// 輸出 0</span></div></pre></td></tr></table></figure>
-<p>NaN 不是個型本型別，代表有個東西無法轉成數值型別的結果<br>
-undefined 無法轉為數值，但 null 卻可以，容易造成未預期的結果</p>
-<p>使用比較運算子，尤其是==時，容易出現未預期的結果</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"3"</span> == <span class="number">3</span>    <span class="comment">// 輸出 true</span></div><div class="line"><span class="literal">false</span> == <span class="number">0</span>  <span class="comment">// 輸出 true</span></div><div class="line"><span class="literal">null</span> == <span class="number">0</span>   <span class="comment">// 輸出 false</span></div><div class="line"><span class="literal">null</span> &lt; <span class="number">1</span>    <span class="comment">// 輸出 true</span></div><div class="line"><span class="string">""</span> == <span class="number">0</span>     <span class="comment">// 輸出 true</span></div><div class="line"><span class="string">""</span> == <span class="literal">false</span> <span class="comment">// 輸出 true</span></div></pre></td></tr></table></figure>
-<p>所以沒特別需求時，要比較變數是否相同時一律改用 ===<br>
-強制型別相同且值也相同時才會輸出 true</p>
-<p>要判斷不相等時改用 !==</p>
-<h2>預設值</h2>
-<p>當函數需要輸入值，但呼叫的時候沒有輸入的時候，例如</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet(<span class="string">'Tony'</span>);<span class="comment">// 顯示 Hello Tony </span></div><div class="line">greet();      <span class="comment">// 顯示 Hello undefined</span></div></pre></td></tr></table></figure>
-<p>沒有給輸入值時，JS不會出現錯誤<br>
-name就變成一個有建立但沒有賦值的變數，預設的值就是 undefined<br>
-但 undefined 被轉為字串 ‘undefined’ 顯示出來，不是我們想要的結果</p>
-<p>如果想要在JS函數的輸入值設定預設值的話，可以這樣寫</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">    name = name || <span class="string">'&lt;Your name here&gt;'</span>;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">greet(<span class="string">'Tony'</span>);<span class="comment">// 顯示 Hello Tony </span></div><div class="line">greet();      <span class="comment">// 顯示 Hello &lt;Your name here&gt;</span></div></pre></td></tr></table></figure>
-<p>這是利用了 || 運算子的特殊行為<br>
-當輸入了兩個可以被轉型為boolean的值，會輸出第一個被轉型為true的值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="literal">undefined</span> || <span class="string">"hello"</span>  <span class="comment">// 輸出 "hello"</span></div><div class="line"><span class="string">"hi"</span> || <span class="string">"hello"</span>       <span class="comment">// 輸出 "hi"</span></div><div class="line"><span class="number">0</span> || <span class="number">1</span>                <span class="comment">// 輸出 1</span></div><div class="line"><span class="literal">null</span> || <span class="string">"hello"</span>       <span class="comment">// 輸出 "hello"</span></div><div class="line"><span class="string">""</span> || <span class="string">"hello"</span>         <span class="comment">// 輸出 "hello"</span></div></pre></td></tr></table></figure>
-<p>要注意輸入值若是數字 0 的時候也會被當成未輸入</p>
-<h2>JS轉換JSON</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> objectLiteral = &#123;</div><div class="line">    <span class="attr">firstname</span>: <span class="string">"Knuckles"</span>,</div><div class="line">    <span class="attr">isMember</span>: <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 將JS物件轉為JSON字串</span></div><div class="line"><span class="keyword">var</span> jsonString = <span class="built_in">JSON</span>.stringify(objectLiteral);</div><div class="line"><span class="built_in">console</span>.log(jsonString);</div><div class="line"></div><div class="line"><span class="comment">//將JSON字串轉為JS物件</span></div><div class="line"><span class="keyword">var</span> jsObject = <span class="built_in">JSON</span>.parse(jsonString);</div><div class="line"><span class="built_in">console</span>.log(jsObject);</div></pre></td></tr></table></figure>
-<p>JS有內建函式可以很容易的轉換兩種資料</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Peggy Zhan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/21999254">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="PG的前端分享">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/12/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-12T14:12:11+08:00">
-                2017-06-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2>Quick Start</h2>
-<h3>Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3>Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3>Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3>Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/12/js_basic_1/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -886,7 +650,7 @@ name就變成一個有建立但沒有賦值的變數，預設的值就是 undefi
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -899,7 +663,7 @@ name就變成一個有建立但沒有賦值的變數，預設的值就是 undefi
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">標籤</span>
               
             </div>
