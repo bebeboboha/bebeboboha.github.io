@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Javascript," />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -93,17 +93,21 @@
 
 
 
-<meta name="description" content="初衷 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
-<meta name="keywords" content="Javascript">
+<meta name="description" content="最近開始經營自己的小天地（這裡，開始使用Hexo上Github玩耍了一下，搜集一點小小玩耍的東西跟大家分享～">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="slice()、splice()、split() 傻傻分不清">
-<meta property="og:url" content="http://yoursite.com/2017/06/14/js-function-slice/index.html">
+<meta property="og:title" content="Hexo 閱讀全文">
+<meta property="og:url" content="http://yoursite.com/2017/06/15/hexo-more/index.html">
 <meta property="og:site_name" content="PG的前端碎念">
-<meta property="og:description" content="初衷 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
-<meta property="og:updated_time" content="2017-06-15T10:09:57.000Z">
+<meta property="og:description" content="最近開始經營自己的小天地（這裡，開始使用Hexo上Github玩耍了一下，搜集一點小小玩耍的東西跟大家分享～">
+<meta property="og:image" content="https://i.imgur.com/pbnis5h.png">
+<meta property="og:image" content="https://i.imgur.com/QiEF2pF.png">
+<meta property="og:image" content="https://i.imgur.com/GWfmqAx.png">
+<meta property="og:updated_time" content="2017-06-15T10:21:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="slice()、splice()、split() 傻傻分不清">
-<meta name="twitter:description" content="初衷 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
+<meta name="twitter:title" content="Hexo 閱讀全文">
+<meta name="twitter:description" content="最近開始經營自己的小天地（這裡，開始使用Hexo上Github玩耍了一下，搜集一點小小玩耍的東西跟大家分享～">
+<meta name="twitter:image" content="https://i.imgur.com/pbnis5h.png">
 
 
 
@@ -131,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/14/js-function-slice/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/15/hexo-more/"/>
 
 
 
 
 
-  <title>slice()、splice()、split() 傻傻分不清 | PG的前端碎念</title>
+  <title>Hexo 閱讀全文 | PG的前端碎念</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -257,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/js-function-slice/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/hexo-more/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Peggy Zhan">
@@ -274,7 +278,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">slice()、splice()、split() 傻傻分不清</h2>
+          <h2 class="post-title" itemprop="name headline">Hexo 閱讀全文</h2>
         
 
         <div class="post-meta">
@@ -286,8 +290,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-14T14:13:48+08:00">
-                2017-06-14
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-15T18:20:47+08:00">
+                2017-06-15
               </time>
             
 
@@ -305,9 +309,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/14/js-function-slice/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/15/hexo-more/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/14/js-function-slice/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/15/hexo-more/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -332,56 +336,26 @@
       
 
       
-        <h2>初衷</h2>
-<p>在複習JavaScript時，常常會被很多相似的東西搞混啊！！！<br>
-特別是處理Array、String等等常用到的總是特別的難分辨<br>
-以下將介紹 slice()、splice()、split()</p>
-<a id="more"></a>
-<h2>slice()</h2>
-<blockquote>
-<p>The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</p>
-</blockquote>
-<h3>複製開始與結束點（結束點不算）中的內容</h3>
-<p><strong>對象：</strong><br>
-可操控Array及String</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.slice()</div><div class="line">arr.slice(begin)</div><div class="line">arr.slice(begin, end)</div></pre></td></tr></table></figure>
-<p><strong>用法：</strong><br>
-begin 為開始的索引值，負數代表從後面開始算起，-1為倒數第一個元素。<br>
-end 為結束的索引值，沒有填寫時則得到arr中的所有元素。<br>
-因為是做shallow copy，所以原值不改變。</p>
-<h2>splice()</h2>
-<blockquote>
-<p>The splice() method changes the contents of an array by removing existing elements and/or adding new elements.</p>
-</blockquote>
-<h3>從Array中添加/刪除項目，回傳被刪除的項目。</h3>
-<p><strong>對象：</strong><br>
-可操控Array</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">array.splice(start)</div><div class="line">array.splice(start, deleteCount)</div><div class="line">array.splice(start, deleteCount, item1, item2, ...)</div></pre></td></tr></table></figure>
-<p><strong>用法：</strong><br>
-start 增加/刪除項目的位置，負數代表從後方算起。<br>
-deleteCount 刪除的個數，如為0則不會刪除。<br>
-item… 添加的新項目。<br>
-會改變原值</p>
-<h2>split()</h2>
-<blockquote>
-<p>The split() method splits a String object into an array of strings by separating the string into substrings.</p>
-</blockquote>
-<h3>分割字串成字串組</h3>
-<p><strong>對象：</strong><br>
-可操控String</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stringObject.split(separator,howmany)</div></pre></td></tr></table></figure>
-<p><strong>用法：</strong><br>
-separator 字串符或正則表達式，從該參數指定的地方分割stringObject。<br>
-howmany 返回值的最大長度，超過該長度則不顯示。<br>
-不改變原值</p>
+        <p>最近開始經營自己的小天地（這裡，開始使用Hexo上Github玩耍了一下，搜集一點小小玩耍的東西跟大家分享～</p>
+<h2><a id="more"></a>手動截斷</h2>
+<p>可以在文章中自己想要的地方加上<code>&lt;!--more--&gt;</code>，這是Hexo推薦的使用方式。</p>
+<!--more-->
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: slice()、splice()、split() 傻傻分不清</div><div class="line">date: 2017-06-14 14:13:48</div><div class="line">tags: Javascript</div><div class="line">---</div><div class="line">## 初衷</div><div class="line"></div><div class="line">在複習JavaScript時，常常會被很多相似的東西搞混啊！！！</div><div class="line">特別是處理Array、String等等常用到的總是特別的難分辨</div><div class="line">以下將介紹 slice()、splice()、split()</div><div class="line">&lt;!--more--&gt;</div><div class="line">## slice()</div><div class="line">&gt;The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</div></pre></td></tr></table></figure>
+<p>就會實現像下方一樣<br>
+<img src="https://i.imgur.com/pbnis5h.png" alt="more閱讀全文"></p>
+<h2>提供文章摘錄</h2>
+<p>在文章中的前方front-matter中添加description，<br>
+這會在首頁列表中顯示文章摘要內容，但進入文章後就不再顯示。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: slice()、splice()、split() 傻傻分不清</div><div class="line">date: 2017-06-14 14:13:48</div><div class="line">tags: Javascript</div><div class="line">description: 點進去後你就看不到我囉～</div><div class="line">---</div><div class="line">## 初衷</div><div class="line"></div><div class="line">在複習JavaScript時，常常會被很多相似的東西搞混啊！！！</div><div class="line">特別是處理Array、String等等常用到的總是特別的難分辨</div><div class="line">以下將介紹 slice()、splice()、split()</div><div class="line">&lt;!--more--&gt;</div><div class="line">## slice()</div><div class="line">&gt;The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</div></pre></td></tr></table></figure>
+<p>畫面就像下方<br>
+<img src="https://i.imgur.com/QiEF2pF.png" alt="文章摘錄"></p>
+<h2>自動形成摘要</h2>
+<p>在主題的<code>_config.yml</code>中修改，將enable修改為true，預設為150字，可視需要修改。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">auto_excerpt:</div><div class="line">  enable: <span class="literal">true</span></div><div class="line">  length: <span class="number">150</span></div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/GWfmqAx.png" alt="自動摘要"><br>
+而在超過字符的部分就會自動截掉，且有寫的markdown語法會吃不到。</p>
 <h2>結語</h2>
-<p>以上是最近在複習JavaScript常用到也容易搞混的，藉由筆記加深印象，並整理出給有相同搞混煩惱的大家，祝大家JavaSctipt路順利😂</p>
-<h2>參考資料</h2>
-<ul>
-<li>W3School JavaScript</li>
-<li>MDN Array</li>
-<li>MDN String</li>
-</ul>
+<p>綜合以上，大家可以選擇自己所喜歡的方法來使用，然而<code>&lt;!-- more --&gt;</code>可以較精確的控制需要顯示摘錄的內容外，也可讓Hexo中的插件更好識別。</p>
 
       
     </div>
@@ -411,7 +385,7 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
       
         <div class="post-tags">
           
-            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           
         </div>
       
@@ -424,8 +398,8 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/13/js_basic_2/" rel="next" title="Js 奇怪部分 - part 2">
-                <i class="fa fa-chevron-left"></i> Js 奇怪部分 - part 2
+              <a href="/2017/06/14/js-function-slice/" rel="next" title="slice()、splice()、split() 傻傻分不清">
+                <i class="fa fa-chevron-left"></i> slice()、splice()、split() 傻傻分不清
               </a>
             
           </div>
@@ -433,10 +407,6 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/15/hexo-more/" rel="prev" title="Hexo 閱讀全文">
-                Hexo 閱讀全文 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,7 +562,7 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">初衷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">slice()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">複製開始與結束點（結束點不算）中的內容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">splice()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">從Array中添加/刪除項目，回傳被刪除的項目。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">split()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">分割字串成字串組</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">手動截斷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">提供文章摘錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">自動形成摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
             
 
           </div>
@@ -747,9 +717,9 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/06/14/js-function-slice/';
-          this.page.identifier = '2017/06/14/js-function-slice/';
-          this.page.title = 'slice()、splice()、split() 傻傻分不清';
+          this.page.url = 'http://yoursite.com/2017/06/15/hexo-more/';
+          this.page.identifier = '2017/06/15/hexo-more/';
+          this.page.title = 'Hexo 閱讀全文';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://bebeboboha.disqus.com/embed.js';
