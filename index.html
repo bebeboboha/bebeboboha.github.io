@@ -335,73 +335,16 @@
 
       
         
-          
-            <h2>前言</h2>
+          <h2>前言</h2>
 <p>看完上一篇介紹Sass及設定，對Sass有了基本的認識，那這篇就讓我們來摸透透Sass的基本功能吧！</p>
 <p>變數、計算、@import、@mixin、@extend，這些都是常用功能，以下我就以Scss示範。</p>
-<h2>變數</h2>
-<p>當今天我們辛辛苦苦把網頁撰寫好，這時老闆突然說「今天算命跟我說綠色會衰，我不要用綠色，都幫我改成藍色！！」（雖然應該不可能發生<br>
-這時我們就得一邊罵在心理，一邊花時間逐行去修改。</p>
-<p><strong>但！！！如果用了變數功能呢！！！</strong></p>
-<p>首先先在程式碼最上面打個『$』字號，後面則是自己命名的變數，<br>
-所以在當我打Scss時，如果有用到連結樣式，我就可以引入變數來取代。</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$primary_color</span>: <span class="number">#369</span>;</div><div class="line"><span class="variable">$secondary_color</span>: <span class="number">#eee</span>;</div><div class="line"></div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="comment">//也可以定義局部變數</span></div><div class="line">    <span class="variable">$page_width</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="variable">$primary_color</span>;</div><div class="line">    <span class="selector-id">#wrapper</span> &#123;</div><div class="line">        <span class="attribute">width</span>: <span class="variable">$page_width</span>;</div><div class="line">        <span class="attribute">background</span>: white;</div><div class="line">        <span class="attribute">border</span>: <span class="variable">$secondary_color</span>;</div><div class="line">        <span class="selector-tag">h1</span> &#123;</div><div class="line">            <span class="attribute">color</span>: <span class="variable">$primary_color</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>像上述例子中，設定了主要跟次要的標準色，當今天顏色需要修改時，就可以只修改最上面的變數來達成效果。<br>
-以下有常用到的全域設定</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$text-color</span>:pink; <span class="comment">// 預設文字顏色</span></div><div class="line"><span class="variable">$link-color</span>:<span class="number">#000</span>; <span class="comment">// 文字連結樣式，多則就再加紹數字</span></div><div class="line"><span class="variable">$link-color-hover</span>:<span class="number">#fff</span>; <span class="comment">// 滑鼠拖曳過後的樣式顏色</span></div><div class="line"><span class="variable">$font-size</span>:<span class="number">13px</span>; <span class="comment">// 全域字型大小，如一網站有多種就下多種字型</span></div><div class="line"><span class="variable">$line-height</span>:<span class="number">1.8</span>; <span class="comment">// 全域行距</span></div><div class="line"><span class="variable">$font-style</span>：”Helvetica Nueue”, Arial, Sans Serif; <span class="comment">// 全域字型</span></div></pre></td></tr></table></figure>
-<h2>計算</h2>
-<p>當今天要製作出方便多人使用的多種字體大小，就有了.font-big .font-middle .font-small並設定好了各個大小。而今天老闆看完後說「整個網站的字太小了，全部都大一點才美！！！」我們就得一個個去修改大小。</p>
-<p><strong>但！！！如果用了計算呢！！！</strong></p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$font-size</span>:<span class="number">16px</span>;</div><div class="line"><span class="selector-class">.font-big</span>&#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="variable">$font-size</span> * <span class="number">1.2</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.font-middle</span>&#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="variable">$font-size</span> - <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.font-small</span>&#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="variable">$font-size</span> / <span class="number">3</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>透過變數加計算，我們只需修改font-size這變數的值就好囉~~</p>
-<h2>@import</h2>
-<p>使用import就可以把CSS程式碼切成好幾份來做檔案管理，最後編譯出來合併成一個CSS檔案，在管理上方便得多。</p>
-<p>如果將Scss檔案命名前面加個『_』的話，就不會編譯出來，例：「_head.scss」。</p>
-<p>所以通常只保留一個編譯的Sass檔，在裡面寫要載入的_xxx.Sass檔，利用@import功能就可以將程式碼都載入到編譯的Sass檔。</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">import</span> <span class="string">"base/head"</span>;</div><div class="line">@<span class="keyword">import</span> <span class="string">"base/body"</span>;</div><div class="line">@<span class="keyword">import</span> <span class="string">"base/foot"</span>;</div></pre></td></tr></table></figure>
-<p>如例子，會將base資料夾中的_head.scss、_body.scss、_foot.scss組合起來。</p>
-<h2>@Mixin</h2>
-<p>mixin允許我們像使用<code>function</code>的方式重複使用css，mixin可以帶參數。</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> border-radius() &#123;</div><div class="line">    -webkit-<span class="attribute">border-radius</span>: <span class="number">3px</span>;</div><div class="line">    -moz-<span class="attribute">border-radius</span>: <span class="number">3px</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.body</span> &#123;</div><div class="line">    @<span class="keyword">include</span> border-radius();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在Scss中，mixin需使用include，而Sass則可直接使用”+”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$font-size:13px</div><div class="line">@mixin bg </div><div class="line">	background: #000</div><div class="line">	font-size: $font-size</div><div class="line">.header</div><div class="line">	+bg</div></pre></td></tr></table></figure>
-<p>mixin中也可帶參數進去</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">mixin</span> background-image(<span class="variable">$background-size</span> : cover) &#123;</div><div class="line">    <span class="attribute">background-size</span>: <span class="variable">$background-size</span>;</div><div class="line">    <span class="attribute">background-repeat</span>: no-repeat;</div><div class="line">    <span class="attribute">background-position</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.banner</span> &#123;</div><div class="line">    @<span class="keyword">include</span> background-image(cover);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.otehr1</span> &#123;</div><div class="line">    @<span class="keyword">include</span> background-image(<span class="number">20px</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.otehr2</span> &#123;</div><div class="line">    @<span class="keyword">include</span> background-image(contain);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>background-size變數預設為cover，mixin完後include使用就可帶入參數。</p>
-<h2>@extend 繼承(Inheritance)</h2>
-<p>繼承讓我們可以把某個元素上的屬性增加到另一個元素上，另一個元素僅需撰寫擴充的部份。就不用每次要修改增加的功能時，捲軸瘋狂滑動的困擾了！</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 第200行位置 */</span> </div><div class="line"><span class="selector-class">.header</span> <span class="selector-tag">h1</span>, <span class="selector-class">.content</span> <span class="selector-tag">h1</span>, <span class="selector-class">.footer</span> <span class="selector-tag">h1</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">1.8</span>;</div><div class="line">  <span class="attribute">letter-spacing</span>: <span class="number">1px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 第400行位置 */</span> </div><div class="line"><span class="selector-class">.header</span> <span class="selector-tag">h1</span> &#123;</div><div class="line">  <span class="attribute">color</span>: black;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 第1000行位置 */</span> </div><div class="line"><span class="selector-class">.content</span> <span class="selector-tag">h1</span> &#123;</div><div class="line">  <span class="attribute">color</span>: green;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 第4000行位置 */</span> </div><div class="line"><span class="selector-class">.footer</span> &#123;</div><div class="line">  <span class="attribute">color</span>: pink;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>當今天要新增一個合併的class就得在4000多行打完後，再回到200行去補上新的class</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">%all-<span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">1.8</span>;</div><div class="line">	<span class="attribute">letter-spacing</span>: <span class="number">1px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.header</span> <span class="selector-tag">h1</span>&#123;</div><div class="line">	@<span class="keyword">extend</span> %all-h1;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#000</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.content</span> <span class="selector-tag">h1</span>&#123;</div><div class="line">	@<span class="keyword">extend</span> %all-h1	;</div><div class="line">	<span class="attribute">color</span>: green;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.footer</span>&#123;</div><div class="line">	@<span class="keyword">extend</span> %all-h1;</div><div class="line">	<span class="attribute">color</span>: pink;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>而再all-h1前面若”沒有”加上%，就會在編譯後多了一個all-h1 的class</p>
-<p><img src="https://i.imgur.com/65mWDwr.png" alt=""><img src="https://i.imgur.com/LnnH0JA.png" alt=""></p>
-<p>左方為有加%，右方為沒加%</p>
-<h3>看到現在，究竟mixin與extend的使用時機該如何抉擇呢？</h3>
-<p><strong>@mixin是將程式碼帶入到對應的class去，同時可帶入變數。</strong><br>
-<strong>@extend則是藉由class合併，並吃到共通樣式，但沒辦法帶入變數。</strong></p>
-<p>所以如果你的樣式都固定不變的，不會需要用參數帶進去改變樣式的話，那就用 <strong>@extend</strong> ，程式碼會比較少些。<br>
-但如果你的程式碼需要帶入多個變數進行運算時，那用 <strong>@mixin</strong> 則較適合。</p>
-<h2>image大法</h2>
-<p>compass還有一個很好用的功能叫做image-url()，<br>
-以往我們撰寫Css的背景圖案時，我們都會這樣去做撰寫。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.logo</span>&#123;</div><div class="line">  <span class="attribute">background</span>:<span class="built_in">url</span>(../images/logo.jpg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但如果你是用Scss的話，就可以變成</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.logo</span>&#123;</div><div class="line">  <span class="attribute">background</span>: image-url(<span class="string">"sass.jpg"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>編譯成Css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.logo</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'/images/logo.jpg?1489392768'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>就會自動幫你對應路徑，除了程式碼比較短外，Compass甚至會幫你在檔名後面加問號+一堆數字。</p>
-<p>透過這樣子的方式，今天你上傳新的Css上去，就不會因為瀏覽器還吃你舊圖片，並立即更新Css與圖片快取，讓你的網站永遠保持最佳更新狀態。</p>
-<h2>結尾</h2>
-<p>終於介紹完一些大眾常用，也較好上手的Sass基礎了~~~<br>
-而Sass海無崖，大家就一起朝著目標前進吧！！！</p>
-<h2>參考資料</h2>
-<ul>
-<li><a href="http://sass-lang.com/guide" target="_blank" rel="external">Sass: Sass Basics</a></li>
-<li><a href="https://speakerdeck.com/irishstu/an-introduction-to-sassy-css" target="_blank" rel="external">Sassy CSS</a></li>
-<li><a href="http://sam0512.blogspot.tw/2013/10/sass.html" target="_blank" rel="external">SASS | 前端工程日誌: Sass &amp; Susy教學手冊</a></li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/19/scss-2/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
