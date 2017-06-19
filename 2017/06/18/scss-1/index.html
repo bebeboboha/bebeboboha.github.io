@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Css," />
 
 
 
@@ -93,21 +93,17 @@
 
 
 
-<meta name="description" content="最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。 而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～ &amp;lt;!--more--&amp;gt;手動截斷 可以在文章中自己想要的地方加上&amp;lt;!--more--&amp;gt;，這是Hexo推薦的使用方式。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="前言 基礎接觸過HTML及CSS後，每次切版總會花上很多時間再整理CSS，這時使用Sass就可以加速CSS撰寫的速度囉123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475">
+<meta name="keywords" content="Css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 閱讀全文">
-<meta property="og:url" content="http://yoursite.com/2017/06/15/hexo-more/index.html">
+<meta property="og:title" content="SASS入門(介紹、設定)">
+<meta property="og:url" content="http://yoursite.com/2017/06/18/scss-1/index.html">
 <meta property="og:site_name" content="PG的前端碎念">
-<meta property="og:description" content="最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。 而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～ &amp;lt;!--more--&amp;gt;手動截斷 可以在文章中自己想要的地方加上&amp;lt;!--more--&amp;gt;，這是Hexo推薦的使用方式。">
-<meta property="og:image" content="https://i.imgur.com/pbnis5h.png">
-<meta property="og:image" content="https://i.imgur.com/QiEF2pF.png">
-<meta property="og:image" content="https://i.imgur.com/GWfmqAx.png">
-<meta property="og:updated_time" content="2017-06-16T09:10:40.000Z">
+<meta property="og:description" content="前言 基礎接觸過HTML及CSS後，每次切版總會花上很多時間再整理CSS，這時使用Sass就可以加速CSS撰寫的速度囉123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475">
+<meta property="og:updated_time" content="2017-06-19T09:43:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 閱讀全文">
-<meta name="twitter:description" content="最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。 而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～ &amp;lt;!--more--&amp;gt;手動截斷 可以在文章中自己想要的地方加上&amp;lt;!--more--&amp;gt;，這是Hexo推薦的使用方式。">
-<meta name="twitter:image" content="https://i.imgur.com/pbnis5h.png">
+<meta name="twitter:title" content="SASS入門(介紹、設定)">
+<meta name="twitter:description" content="前言 基礎接觸過HTML及CSS後，每次切版總會花上很多時間再整理CSS，這時使用Sass就可以加速CSS撰寫的速度囉123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475">
 
 
 
@@ -135,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/15/hexo-more/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/18/scss-1/"/>
 
 
 
 
 
-  <title>Hexo 閱讀全文 | PG的前端碎念</title>
+  <title>SASS入門(介紹、設定) | PG的前端碎念</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -261,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/hexo-more/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/18/scss-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Peggy Zhan">
@@ -278,7 +274,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hexo 閱讀全文</h2>
+          <h2 class="post-title" itemprop="name headline">SASS入門(介紹、設定)</h2>
         
 
         <div class="post-meta">
@@ -290,8 +286,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-15T18:20:47+08:00">
-                2017-06-15
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-18T17:42:53+08:00">
+                2017-06-18
               </time>
             
 
@@ -309,9 +305,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/hexo-more/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/18/scss-1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/hexo-more/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/18/scss-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -336,27 +332,14 @@
       
 
       
-        <p>最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。<br>
-而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～</p>
-<h2><code>&lt;!--more--&gt;</code>手動截斷</h2>
-<p>可以在文章中自己想要的地方加上<code>&lt;!--more--&gt;</code>，這是Hexo推薦的使用方式。</p>
-<a id="more"></a>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: slice()、splice()、split() 傻傻分不清</div><div class="line">date: 2017-06-14 14:13:48</div><div class="line">tags: Javascript</div><div class="line">---</div><div class="line">## 初衷</div><div class="line"></div><div class="line">在複習JavaScript時，常常會被很多相似的東西搞混啊！！！</div><div class="line">特別是處理Array、String等等常用到的總是特別的難分辨</div><div class="line">以下將介紹 slice()、splice()、split()</div><div class="line">&lt;!--more--&gt;</div><div class="line">## slice()</div><div class="line">&gt;The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</div></pre></td></tr></table></figure>
-<p>就會實現像下方一樣<br>
-<img src="https://i.imgur.com/pbnis5h.png" alt="more閱讀全文"></p>
-<h2>提供文章摘錄</h2>
-<p>在文章中的前方front-matter中添加description，<br>
-這會在首頁列表中顯示文章摘要內容，但進入文章後就不再顯示。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: slice()、splice()、split() 傻傻分不清</div><div class="line">date: 2017-06-14 14:13:48</div><div class="line">tags: Javascript</div><div class="line">description: 點進去後你就看不到我囉～</div><div class="line">---</div><div class="line">## 初衷</div><div class="line"></div><div class="line">在複習JavaScript時，常常會被很多相似的東西搞混啊！！！</div><div class="line">特別是處理Array、String等等常用到的總是特別的難分辨</div><div class="line">以下將介紹 slice()、splice()、split()</div><div class="line">&lt;!--more--&gt;</div><div class="line">## slice()</div><div class="line">&gt;The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</div></pre></td></tr></table></figure>
-<p>畫面就像下方<br>
-<img src="https://i.imgur.com/QiEF2pF.png" alt="文章摘錄"></p>
-<h2>自動形成摘要</h2>
-<p>在主題的<code>_config.yml</code>中修改，將enable修改為true，預設為150字，可視需要修改。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">auto_excerpt:</div><div class="line">  enable: <span class="literal">true</span></div><div class="line">  length: <span class="number">150</span></div></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/GWfmqAx.png" alt="自動摘要"><br>
-而在超過字符的部分就會自動截掉，且有寫的markdown語法會吃不到。</p>
-<h2>結語</h2>
-<p>綜合以上，大家可以選擇自己所喜歡的方法來使用，然而<code>&lt;!-- more --&gt;</code>可以較精確的控制需要顯示摘錄的內容外，也可讓Hexo中的插件更好識別。</p>
+        <h1>前言</h1>
+<p>基礎接觸過HTML及CSS後，每次切版總會花上很多時間再整理CSS，這時使用Sass就可以加速CSS撰寫的速度囉<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 當你使用CSS時也有以下困擾，請服用Sass可舒緩</div><div class="line">1. 有時候div class叫做.header時，底下如果有很多子元素，通常都必須一直重複打.header。例：.header h1、.header li a、.header .topbar</div><div class="line">2. 如果CSS寫越來越多時，時常必須用滑鼠滾輪上下找code，因此而感到煩躁。</div><div class="line">3. 認為自己一再重複打同樣的code。</div><div class="line">4. 認為自己開發網頁CSS效率遇到瓶頸，欲尋更好的撰寫效率與工具。</div><div class="line">5. 有時候CSS結尾或分號沒寫到，導致除錯除了老半天才發現錯誤，降低寫code效率。</div><div class="line">6. 常聽業界說Sass。</div><div class="line">7. 有人叫我學Sass。</div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line">## Sass在做什麼？</div><div class="line">編輯Sass檔案，透過編譯後就還是會變成網頁看得懂的CSS檔，</div><div class="line">所以並非是在HTML裡面載入Sass檔，仍然還在引入CSS檔案。</div><div class="line">## Sass及Scss</div><div class="line">而不只sass還有scss，兩者則是習慣編寫上的差別。</div><div class="line">舉例一般的css碼</div><div class="line">```js</div><div class="line">.header &#123;</div><div class="line">  height: 80px;</div><div class="line">&#125;</div><div class="line">.header .logo &#123;</div><div class="line">  position: relative;</div><div class="line">&#125;</div><div class="line">.header .logo a &#123;</div><div class="line">  display: block;</div><div class="line">&#125;</div><div class="line">.header .logo a:hover &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line">.header .menu &#123;</div><div class="line">  width: 500px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">```</div><div class="line"></div><div class="line">- 新增：每次都必須重新打一次.menu後才有辦法繼續寫一個樣式的設定，例如.menu a、.menu li</div><div class="line">- 調整：程式碼寫完後，日後要修改/維護/複製時，.menu要改其它名稱就必須逐行去修改，極為不方便。</div><div class="line">- 除錯：寫純css時，如果不小心恍神少了個「;」、「｛」、「｝」時，CSS爛掉或沒起效用通常都需要花額外的時間除錯。</div><div class="line"></div><div class="line">### 而上述這些在寫Sass就可解決</div><div class="line"></div><div class="line">```js</div><div class="line">.header</div><div class="line">	height: 80px</div><div class="line">	.logo</div><div class="line">		position: relative</div><div class="line">		a </div><div class="line">			display: block</div><div class="line">			&amp;:hover</div><div class="line">				color: red</div><div class="line">	.menu</div><div class="line">		width: 500px</div><div class="line">```</div><div class="line"></div><div class="line">撰寫Sass的下一個class，按Enter下一行推一個Tab。</div><div class="line">所以這種Sass的寫法十分的乾淨，但就要很注意**換行及Tab**，不習慣這麼乾淨的Sass，就可以使用Scss，和css類似，就多了巢狀的寫法，且Scss是支援純Css寫法的。</div><div class="line"></div><div class="line">```js</div><div class="line">.header &#123;</div><div class="line">  height: 80px;</div><div class="line">  .logo&#123;</div><div class="line">    position: relative;</div><div class="line">    a&#123;</div><div class="line">       display: block;</div><div class="line">      &amp;:hover&#123;</div><div class="line">        color: red;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  .menu&#123;</div><div class="line">    width: 500px;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">```</div><div class="line"></div><div class="line">## 開始Sass吧！！！</div><div class="line">```shell</div><div class="line">compass create test</div><div class="line">```</div><div class="line">安裝完ruby、Sass、compass後，就可以透過compass create新的Sass專案，檔案中包含了</div><div class="line">**sass資料夾（從中編輯scss），stylesheets資料夾（經過Sass編譯後的css檔）及config（記載Sass設定）**</div><div class="line">```shell</div><div class="line">compass watch test</div><div class="line">```</div><div class="line">記得開啟監控後，才能打Sass時同時修改成css呦~~</div><div class="line"></div><div class="line">要停止監控，使用ctrl+c</div><div class="line"></div><div class="line">## 設定config.rb</div><div class="line">如果你希望sass編譯出來的css不要有註解，那就將`# line_comments = false` 前面的#號拿掉就不會產生出註解。</div><div class="line"></div><div class="line">裡面會有四行以下的預設設定碼，如果你放CSS的資料夾名稱為CSS，便把stylesheets名稱改為CSS，這樣Sass編譯出來的CSS就會在CSS資料夾，而不會style裡面。</div><div class="line">```js</div><div class="line">css_dir = &quot;stylesheets&quot;</div><div class="line">sass_dir = &quot;sass&quot;</div><div class="line">images_dir = &quot;images&quot;</div><div class="line">javascripts_dir = &quot;javascripts&quot;</div><div class="line">```</div><div class="line">修改完config後，記得要重新啟動（watch）才會生效呦！！</div><div class="line"></div><div class="line">## 結尾</div><div class="line">Sass的基礎介紹及設定就到此告一段落</div></pre></td></tr></table></figure></p>
+<p>下篇將繼續簡介Sass的初階功能</p>
+<h2>參考資料</h2>
+<ul>
+<li>Sass: Sass Basics</li>
+<li>SASS | 前端工程日誌: Sass &amp; Susy教學手冊</li>
+</ul>
 
       
     </div>
@@ -386,7 +369,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/Css/" rel="tag"># Css</a>
           
         </div>
       
@@ -399,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/14/js-function-slice/" rel="next" title="slice()、splice()、split() 傻傻分不清">
-                <i class="fa fa-chevron-left"></i> slice()、splice()、split() 傻傻分不清
+              <a href="/2017/06/16/hexo-disqus/" rel="next" title="Hexo 加入 Disqus 來留言吧">
+                <i class="fa fa-chevron-left"></i> Hexo 加入 Disqus 來留言吧
               </a>
             
           </div>
@@ -408,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/16/hexo-disqus/" rel="prev" title="Hexo 加入 Disqus 來留言吧">
-                Hexo 加入 Disqus 來留言吧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><!--more-->手動截斷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">提供文章摘錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">自動形成摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">參考資料</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -722,9 +701,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/06/15/hexo-more/';
-          this.page.identifier = '2017/06/15/hexo-more/';
-          this.page.title = 'Hexo 閱讀全文';
+          this.page.url = 'http://yoursite.com/2017/06/18/scss-1/';
+          this.page.identifier = '2017/06/18/scss-1/';
+          this.page.title = 'SASS入門(介紹、設定)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://coding-xiao-dong-wu.disqus.com/embed.js';
