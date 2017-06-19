@@ -335,17 +335,25 @@
 
       
         
-          
-            <h1>前言</h1>
-<p>基礎接觸過HTML及CSS後，每次切版總會花上很多時間再整理CSS，這時使用Sass就可以加速CSS撰寫的速度囉<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 當你使用CSS時也有以下困擾，請服用Sass可舒緩</div><div class="line">1. 有時候div class叫做.header時，底下如果有很多子元素，通常都必須一直重複打.header。例：.header h1、.header li a、.header .topbar</div><div class="line">2. 如果CSS寫越來越多時，時常必須用滑鼠滾輪上下找code，因此而感到煩躁。</div><div class="line">3. 認為自己一再重複打同樣的code。</div><div class="line">4. 認為自己開發網頁CSS效率遇到瓶頸，欲尋更好的撰寫效率與工具。</div><div class="line">5. 有時候CSS結尾或分號沒寫到，導致除錯除了老半天才發現錯誤，降低寫code效率。</div><div class="line">6. 常聽業界說Sass。</div><div class="line">7. 有人叫我學Sass。</div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line">## Sass在做什麼？</div><div class="line">編輯Sass檔案，透過編譯後就還是會變成網頁看得懂的CSS檔，</div><div class="line">所以並非是在HTML裡面載入Sass檔，仍然還在引入CSS檔案。</div><div class="line">## Sass及Scss</div><div class="line">而不只sass還有scss，兩者則是習慣編寫上的差別。</div><div class="line">舉例一般的css碼</div><div class="line">```js</div><div class="line">.header &#123;</div><div class="line">  height: 80px;</div><div class="line">&#125;</div><div class="line">.header .logo &#123;</div><div class="line">  position: relative;</div><div class="line">&#125;</div><div class="line">.header .logo a &#123;</div><div class="line">  display: block;</div><div class="line">&#125;</div><div class="line">.header .logo a:hover &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div><div class="line">.header .menu &#123;</div><div class="line">  width: 500px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">```</div><div class="line"></div><div class="line">- 新增：每次都必須重新打一次.menu後才有辦法繼續寫一個樣式的設定，例如.menu a、.menu li</div><div class="line">- 調整：程式碼寫完後，日後要修改/維護/複製時，.menu要改其它名稱就必須逐行去修改，極為不方便。</div><div class="line">- 除錯：寫純css時，如果不小心恍神少了個「;」、「｛」、「｝」時，CSS爛掉或沒起效用通常都需要花額外的時間除錯。</div><div class="line"></div><div class="line">### 而上述這些在寫Sass就可解決</div><div class="line"></div><div class="line">```js</div><div class="line">.header</div><div class="line">	height: 80px</div><div class="line">	.logo</div><div class="line">		position: relative</div><div class="line">		a </div><div class="line">			display: block</div><div class="line">			&amp;:hover</div><div class="line">				color: red</div><div class="line">	.menu</div><div class="line">		width: 500px</div><div class="line">```</div><div class="line"></div><div class="line">撰寫Sass的下一個class，按Enter下一行推一個Tab。</div><div class="line">所以這種Sass的寫法十分的乾淨，但就要很注意**換行及Tab**，不習慣這麼乾淨的Sass，就可以使用Scss，和css類似，就多了巢狀的寫法，且Scss是支援純Css寫法的。</div><div class="line"></div><div class="line">```js</div><div class="line">.header &#123;</div><div class="line">  height: 80px;</div><div class="line">  .logo&#123;</div><div class="line">    position: relative;</div><div class="line">    a&#123;</div><div class="line">       display: block;</div><div class="line">      &amp;:hover&#123;</div><div class="line">        color: red;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  .menu&#123;</div><div class="line">    width: 500px;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">```</div><div class="line"></div><div class="line">## 開始Sass吧！！！</div><div class="line">```shell</div><div class="line">compass create test</div><div class="line">```</div><div class="line">安裝完ruby、Sass、compass後，就可以透過compass create新的Sass專案，檔案中包含了</div><div class="line">**sass資料夾（從中編輯scss），stylesheets資料夾（經過Sass編譯後的css檔）及config（記載Sass設定）**</div><div class="line">```shell</div><div class="line">compass watch test</div><div class="line">```</div><div class="line">記得開啟監控後，才能打Sass時同時修改成css呦~~</div><div class="line"></div><div class="line">要停止監控，使用ctrl+c</div><div class="line"></div><div class="line">## 設定config.rb</div><div class="line">如果你希望sass編譯出來的css不要有註解，那就將`# line_comments = false` 前面的#號拿掉就不會產生出註解。</div><div class="line"></div><div class="line">裡面會有四行以下的預設設定碼，如果你放CSS的資料夾名稱為CSS，便把stylesheets名稱改為CSS，這樣Sass編譯出來的CSS就會在CSS資料夾，而不會style裡面。</div><div class="line">```js</div><div class="line">css_dir = &quot;stylesheets&quot;</div><div class="line">sass_dir = &quot;sass&quot;</div><div class="line">images_dir = &quot;images&quot;</div><div class="line">javascripts_dir = &quot;javascripts&quot;</div><div class="line">```</div><div class="line">修改完config後，記得要重新啟動（watch）才會生效呦！！</div><div class="line"></div><div class="line">## 結尾</div><div class="line">Sass的基礎介紹及設定就到此告一段落</div></pre></td></tr></table></figure></p>
-<p>下篇將繼續簡介Sass的初階功能</p>
-<h2>參考資料</h2>
-<ul>
-<li>Sass: Sass Basics</li>
-<li>SASS | 前端工程日誌: Sass &amp; Susy教學手冊</li>
-</ul>
-
-          
+          <h1>前言</h1>
+<p>基礎接觸過HTML及CSS後，每次切版總會花上很多時間再整理CSS，這時使用Sass就可以加速CSS撰寫的速度囉~~</p>
+<h3>當你使用CSS時也有以下困擾，請服用Sass可舒緩</h3>
+<ol>
+<li>有時候div class叫做.header時，底下如果有很多子元素，通常都必須一直重複打.header。例：.header h1、.header li a、.header .topbar</li>
+<li>如果CSS寫越來越多時，時常必須用滑鼠滾輪上下找code，因此而感到煩躁。</li>
+<li>認為自己一再重複打同樣的code。</li>
+<li>認為自己開發網頁CSS效率遇到瓶頸，欲尋更好的撰寫效率與工具。</li>
+<li>有時候CSS結尾或分號沒寫到，導致除錯除了老半天才發現錯誤，降低寫code效率。</li>
+<li>常聽業界說Sass。</li>
+<li>有人叫我學Sass。</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/18/scss-1/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1088,7 +1096,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">標籤</span>
               
             </div>
