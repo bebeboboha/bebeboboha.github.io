@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="初衷 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
+<meta name="description" content="前言 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="slice()、splice()、split() 傻傻分不清">
 <meta property="og:url" content="http://yoursite.com/2017/06/14/js-function-slice/index.html">
 <meta property="og:site_name" content="PG的前端碎念">
-<meta property="og:description" content="初衷 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
-<meta property="og:updated_time" content="2017-06-15T10:09:57.000Z">
+<meta property="og:description" content="前言 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
+<meta property="og:updated_time" content="2017-06-19T10:21:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="slice()、splice()、split() 傻傻分不清">
-<meta name="twitter:description" content="初衷 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
+<meta name="twitter:description" content="前言 在複習JavaScript時，常常會被很多相似的東西搞混啊！！！ 特別是處理Array、String等等常用到的總是特別的難分辨 以下將介紹 slice()、splice()、split()">
 
 
 
@@ -332,7 +332,7 @@
       
 
       
-        <h2>初衷</h2>
+        <h2>前言</h2>
 <p>在複習JavaScript時，常常會被很多相似的東西搞混啊！！！<br>
 特別是處理Array、String等等常用到的總是特別的難分辨<br>
 以下將介紹 slice()、splice()、split()</p>
@@ -592,7 +592,7 @@ howmany 返回值的最大長度，超過該長度則不顯示。<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">初衷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">slice()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">複製開始與結束點（結束點不算）中的內容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">splice()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">從Array中添加/刪除項目，回傳被刪除的項目。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">split()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">分割字串成字串組</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">slice()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">複製開始與結束點（結束點不算）中的內容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">splice()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">從Array中添加/刪除項目，回傳被刪除的項目。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">split()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">分割字串成字串組</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
             
 
           </div>
