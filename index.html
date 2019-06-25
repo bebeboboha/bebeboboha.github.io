@@ -257,6 +257,193 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/23/ga-hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peggy Zhan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/21999254">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PG的前端碎念">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/23/ga-hexo/" itemprop="url">建立使用量分析的網頁</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-06-23T01:26:46+08:00">
+                2019-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/23/ga-hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/06/23/ga-hexo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>使用量分析</h2>
+<h3>點閱率</h3>
+<ul>
+<li>較簡單，很多東西上都會做到點閱率。例：inVision, campsite</li>
+<li>就只有點閱率</li>
+</ul>
+<h3>GA google analytics</h3>
+<ul>
+<li>豐富的分析，顯示訪客的性別、年齡層、興趣、國家等</li>
+<li>停留了多久時間，跳離率(Bounce Rate)多少</li>
+<li>流量在各時間的變化</li>
+<li>知道你的網站流量從哪裡來</li>
+<li>分析互動</li>
+</ul>
+<h2>實作想法</h2>
+<p>目前還想不到可以直接產url 並分析網站的工具，所以還是要：</p>
+<ol>
+<li>先有網站網址</li>
+<li>使用 google analytics</li>
+<li>埋ga</li>
+</ol>
+<h2>網站網址</h2>
+<p>想以最低成本，且最方便的方式有一個可供測試的網站：</p>
+<ol>
+<li>Wix</li>
+<li>wordpress</li>
+<li>購買domain</li>
+<li>git page</li>
+</ol>
+<h2>實際實作</h2>
+<h3>Wix</h3>
+<p>在Wix 就內建 google analytics，註冊完ga 後取得追蹤id，準備要在wix中埋入ga時才發現，只有WiX進階付費版本才有此功能。</p>
+<blockquote>
+<p>Business Basic US$17 / 月</p>
+</blockquote>
+<h3>wordpress</h3>
+<p>wordpress 有內建的外掛可以直接使用ga 或是修改header footer 來埋ga，但一樣是要升級至商務版方案才能安裝外掛程式。</p>
+<blockquote>
+<p>商務版 US$25 / 月</p>
+</blockquote>
+<h1>好吧 既然都不給免費埋ga 那我們自己改寫應該行了吧</h1>
+<h3>購買domain</h3>
+<p>寫了一個單純可以放ga 在head 的html 接著就是放上網域了<br>
+除了付費domain 外還有免費可以供測試的 <a href="https://www.freenom.com/zu/index.html?lang=zu" target="_blank" rel="external">freenom</a>，但萬事俱備後才發現… 不對啊怎麼放?<br>
+還要在短時間內研究DNS研究如何發布，不行這要花太多時間了!!!</p>
+<h3>git page</h3>
+<p>使用hexo 建立的git page 生成後會產生index.html<br>
+有網址、能埋ga 在<head></head>中</p>
+<p><strong>這不就是我們要的嗎!!</strong></p>
+<p>把ga 拿到的代碼貼到index.html 內</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure>
+<p>檢視頁面程式碼</p>
+<p><strong>不對啊ga 代碼呢</strong></p>
+<p>再回去看index.html 裡面的剛剛放的程式消失了<br>
+才想到 每次hexo d -g都會重建一份index.html</p>
+<p>上網搜尋了一下<br>
+發現有些主題內建的_config.yml 早已寫好ga<br>
+themes/landscape/_config.yml (landscape主題)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">google_analytics:</span> <span class="string">UA-xxxxxxxx-x</span></div></pre></td></tr></table></figure>
+<p>之後再做一次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d -g</div></pre></td></tr></table></figure>
+<p>終於完成了！！！！</p>
+<h2>結語</h2>
+<p>這次是受朋友之託需要這樣的網站，實作後也練習了蠻多有趣的東西。google analytics 跟 hexo 中間跳過蠻多的，之後如果有空會再補上各個細節教學。<br>
+實現需求時總能找到更多好玩的技術，希望大家也能找回 ( 或保持 ) 當工程師的樂趣。Have fun !</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/cookie-localstorage-sessionstorage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1624,7 +1811,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
