@@ -257,6 +257,212 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/cookie-localstorage-sessionstorage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peggy Zhan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/21999254">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PG的前端碎念">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/18/cookie-localstorage-sessionstorage/" itemprop="url">Cookie、LocalStorage、SessionStorage 差異</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-06-18T01:22:00+08:00">
+                2019-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/18/cookie-localstorage-sessionstorage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/06/18/cookie-localstorage-sessionstorage/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>基本概念</h2>
+<h3>Cookie</h3>
+<blockquote>
+<p>可設定失效時間。 預設是關閉瀏覽器後失效</p>
+</blockquote>
+<p>HTTP cookie（web cookie、browser cookie）為伺服器傳送給使用者瀏覽器的一個小片段資料。瀏覽器可能儲存並在下一次請求回傳 cookie 至相同的伺服器。Cookie 通常被用來保持使用者的登入狀態——如果兩次請求都來自相同的瀏覽器。有個數限制（各瀏覽器不同），一般不能超過20個</p>
+<ul>
+<li>大小約 4kb</li>
+<li>每次 request 時都會帶上</li>
+</ul>
+<h3>LocalStorage / SessionStorage</h3>
+<p>是HTML5提供兩種在客戶端儲存資料的方法，彌補了cookie儲存量小、不適用於大量資料本地儲存的問題。<br>
+從字面上的意思就可以看出，sessionStorage將資料儲存在session中，瀏覽器關閉也就沒了；而localStorage則一直將資料儲存在客戶端本地； 不管是sessionStorage，還是localStorage，可使用的API都相同。</p>
+<ul>
+<li>都是使用 key / value pair 的方式 給值或取值</li>
+<li>大小預設有 5mb</li>
+<li>每次 request 不會帶上</li>
+</ul>
+<h3>LocalStorage</h3>
+<blockquote>
+<p>不會過期，除非手動清除</p>
+</blockquote>
+<h3>SessionStorage</h3>
+<blockquote>
+<p>每次分頁或瀏覽器關掉後就會清除</p>
+</blockquote>
+<p>生命周期只存在瀏覽囂的 <strong>單一分頁</strong> ，也就是 <strong>另開新分頁的話</strong> ，又是一個 <strong>新的sessionStorage</strong> ，預設無逾期時間，除非關閉該分頁、關閉瀏覽器等，sessionStorage就會消失。</p>
+<h2>三者差異</h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>生命週期</strong></td>
+<td>可設定失效時間。 預設是關閉瀏覽器後失效</td>
+<td>除非被清除，否則永久保存</td>
+<td>關閉頁面或瀏覽器後被清除</td>
+</tr>
+<tr>
+<td><strong>大小</strong></td>
+<td>4K 左右</td>
+<td>一般為 5Mb</td>
+<td>一般為 5Mb</td>
+</tr>
+<tr>
+<td><strong>與Server溝通</strong></td>
+<td>每次都會攜帶在HTTP中， 保存過多數據會帶來效能問題</td>
+<td>僅在瀏覽器保存， 不參與Server的溝通</td>
+<td>僅在瀏覽器保存， 不參與Server的溝通</td>
+</tr>
+</tbody>
+</table>
+<h2>應用場景</h2>
+<h3>Cookie</h3>
+<p>比較常用的場景就是判斷用戶是否登錄<br>
+針對登錄過的用戶，服務器端會在他登錄時往Cookie 插入一段加密過的辨識碼，下次只要讀取這個值就可以判斷用戶是否登錄</p>
+<ul>
+<li>Session 管理<br>
+帳號登入、購物車、遊戲分數，或任何其他伺服器應該記住的資訊</li>
+<li>個人化<br>
+使用者設定、佈景主題，以及其他設定</li>
+<li>追蹤<br>
+記錄並分析使用者行為</li>
+</ul>
+<h3>LocalStorage</h3>
+<p>而另一方面 localStorage 代替了 Cookie 管理購物車的工作，同時也能勝任其他工作。比如說HTML遊戲通常會產生一些數據，localStorage 也很適合使用。</p>
+<h3>SessionStorage</h3>
+<p>如果遇到一些內容特別多的表單，為了提升用戶體驗，可能要把表單頁面拆分成多個子頁面，然後按照步驟引導用戶。這時候 sessionStorage 就可以發揮出效用。</p>
+<h2>安全考慮</h2>
+<p>並非所有數據都適合儲存在這些其中。因為只要網站中存有XSS 的風險，打開控制台，就可以隨意修改值，就能對你的localStorage 肆意妄為。所以千萬不要將敏感數據儲存在這其中。</p>
+<h2>參考資料</h2>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API" target="_blank" rel="external">Web Storage API - Web APIs | MDN</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Cookie" target="_blank" rel="external">Cookie - 維基百科</a></li>
+<li><a href="https://stackoverflow.com/questions/3718349/html5-localstorage-security" target="_blank" rel="external">HTML5 localStorage security - Stack Overflow</a></li>
+<li><a href="https://www.cnblogs.com/yuzhongwusan/archive/2011/12/19/2293347.html" target="_blank" rel="external">HTMl5的sessionStorage和localStorage</a></li>
+<li><a href="https://jerryzou.com/posts/cookie-and-web-storage/" target="_blank" rel="external">详说 Cookie, LocalStorage 与 SessionStorage | 咀嚼之味</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/mocha-chai/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1418,7 +1624,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>

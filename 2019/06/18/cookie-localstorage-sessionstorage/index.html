@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -93,21 +93,17 @@
 
 
 
-<meta name="description" content="最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。 而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～ &amp;lt;!--more--&amp;gt;手動截斷 可以在文章中自己想要的地方加上&amp;lt;!--more--&amp;gt;，這是Hexo推薦的使用方式。">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="基本概念 Cookie  可設定失效時間。 預設是關閉瀏覽器後失效  HTTP cookie（web cookie、browser cookie）為伺服器傳送給使用者瀏覽器的一個小片段資料。瀏覽器可能儲存並在下一次請求回傳 cookie 至相同的伺服器。Cookie 通常被用來保持使用者的登入狀態——如果兩次請求都來自相同的瀏覽器。有個數限制（各瀏覽器不同），一般不能超過20個  大小約 4kb">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 閱讀全文">
-<meta property="og:url" content="http://yoursite.com/2017/06/15/hexo-more/index.html">
+<meta property="og:title" content="Cookie、LocalStorage、SessionStorage 差異">
+<meta property="og:url" content="http://yoursite.com/2019/06/18/cookie-localstorage-sessionstorage/index.html">
 <meta property="og:site_name" content="PG的前端碎念">
-<meta property="og:description" content="最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。 而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～ &amp;lt;!--more--&amp;gt;手動截斷 可以在文章中自己想要的地方加上&amp;lt;!--more--&amp;gt;，這是Hexo推薦的使用方式。">
-<meta property="og:image" content="https://i.imgur.com/pbnis5h.png">
-<meta property="og:image" content="https://i.imgur.com/QiEF2pF.png">
-<meta property="og:image" content="https://i.imgur.com/GWfmqAx.png">
-<meta property="og:updated_time" content="2017-06-16T09:10:40.000Z">
+<meta property="og:description" content="基本概念 Cookie  可設定失效時間。 預設是關閉瀏覽器後失效  HTTP cookie（web cookie、browser cookie）為伺服器傳送給使用者瀏覽器的一個小片段資料。瀏覽器可能儲存並在下一次請求回傳 cookie 至相同的伺服器。Cookie 通常被用來保持使用者的登入狀態——如果兩次請求都來自相同的瀏覽器。有個數限制（各瀏覽器不同），一般不能超過20個  大小約 4kb">
+<meta property="og:updated_time" content="2019-06-25T17:22:49.278Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 閱讀全文">
-<meta name="twitter:description" content="最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。 而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～ &amp;lt;!--more--&amp;gt;手動截斷 可以在文章中自己想要的地方加上&amp;lt;!--more--&amp;gt;，這是Hexo推薦的使用方式。">
-<meta name="twitter:image" content="https://i.imgur.com/pbnis5h.png">
+<meta name="twitter:title" content="Cookie、LocalStorage、SessionStorage 差異">
+<meta name="twitter:description" content="基本概念 Cookie  可設定失效時間。 預設是關閉瀏覽器後失效  HTTP cookie（web cookie、browser cookie）為伺服器傳送給使用者瀏覽器的一個小片段資料。瀏覽器可能儲存並在下一次請求回傳 cookie 至相同的伺服器。Cookie 通常被用來保持使用者的登入狀態——如果兩次請求都來自相同的瀏覽器。有個數限制（各瀏覽器不同），一般不能超過20個  大小約 4kb">
 
 
 
@@ -135,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/15/hexo-more/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/18/cookie-localstorage-sessionstorage/"/>
 
 
 
 
 
-  <title>Hexo 閱讀全文 | PG的前端碎念</title>
+  <title>Cookie、LocalStorage、SessionStorage 差異 | PG的前端碎念</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -261,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/hexo-more/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/cookie-localstorage-sessionstorage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Peggy Zhan">
@@ -278,7 +274,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hexo 閱讀全文</h2>
+          <h2 class="post-title" itemprop="name headline">Cookie、LocalStorage、SessionStorage 差異</h2>
         
 
         <div class="post-meta">
@@ -290,8 +286,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-15T18:20:47+08:00">
-                2017-06-15
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-06-18T01:22:00+08:00">
+                2019-06-18
               </time>
             
 
@@ -309,9 +305,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/hexo-more/#comments" itemprop="discussionUrl">
+                <a href="/2019/06/18/cookie-localstorage-sessionstorage/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/hexo-more/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/06/18/cookie-localstorage-sessionstorage/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -336,27 +332,90 @@
       
 
       
-        <p>最近開始經營自己的小天地，開始使用Hexo上Github玩耍了一下。<br>
-而在一開始設定完Hexo，所有的文章都是一坨一坨的出現，就開始來研究閱讀全文吧～</p>
-<h2><code>&lt;!--more--&gt;</code>手動截斷</h2>
-<p>可以在文章中自己想要的地方加上<code>&lt;!--more--&gt;</code>，這是Hexo推薦的使用方式。</p>
-<a id="more"></a>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: slice()、splice()、split() 傻傻分不清</div><div class="line">date: 2017-06-14 14:13:48</div><div class="line">tags: Javascript</div><div class="line">---</div><div class="line">## 初衷</div><div class="line"></div><div class="line">在複習JavaScript時，常常會被很多相似的東西搞混啊！！！</div><div class="line">特別是處理Array、String等等常用到的總是特別的難分辨</div><div class="line">以下將介紹 slice()、splice()、split()</div><div class="line">&lt;!--more--&gt;</div><div class="line">## slice()</div><div class="line">&gt;The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</div></pre></td></tr></table></figure>
-<p>就會實現像下方一樣<br>
-<img src="https://i.imgur.com/pbnis5h.png" alt="more閱讀全文"></p>
-<h2>提供文章摘錄</h2>
-<p>在文章中的前方front-matter中添加description，<br>
-這會在首頁列表中顯示文章摘要內容，但進入文章後就不再顯示。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: slice()、splice()、split() 傻傻分不清</div><div class="line">date: 2017-06-14 14:13:48</div><div class="line">tags: Javascript</div><div class="line">description: 點進去後你就看不到我囉～</div><div class="line">---</div><div class="line">## 初衷</div><div class="line"></div><div class="line">在複習JavaScript時，常常會被很多相似的東西搞混啊！！！</div><div class="line">特別是處理Array、String等等常用到的總是特別的難分辨</div><div class="line">以下將介紹 slice()、splice()、split()</div><div class="line">&lt;!--more--&gt;</div><div class="line">## slice()</div><div class="line">&gt;The slice() method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.</div></pre></td></tr></table></figure>
-<p>畫面就像下方<br>
-<img src="https://i.imgur.com/QiEF2pF.png" alt="文章摘錄"></p>
-<h2>自動形成摘要</h2>
-<p>在主題的<code>_config.yml</code>中修改，將enable修改為true，預設為150字，可視需要修改。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">auto_excerpt:</div><div class="line">  enable: <span class="literal">true</span></div><div class="line">  length: <span class="number">150</span></div></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/GWfmqAx.png" alt="自動摘要"><br>
-而在超過字符的部分就會自動截掉，且有寫的markdown語法會吃不到。</p>
-<h2>結語</h2>
-<p>綜合以上，大家可以選擇自己所喜歡的方法來使用，然而<code>&lt;!-- more --&gt;</code>可以較精確的控制需要顯示摘錄的內容外，也可讓Hexo中的插件更好識別。</p>
+        <h2>基本概念</h2>
+<h3>Cookie</h3>
+<blockquote>
+<p>可設定失效時間。 預設是關閉瀏覽器後失效</p>
+</blockquote>
+<p>HTTP cookie（web cookie、browser cookie）為伺服器傳送給使用者瀏覽器的一個小片段資料。瀏覽器可能儲存並在下一次請求回傳 cookie 至相同的伺服器。Cookie 通常被用來保持使用者的登入狀態——如果兩次請求都來自相同的瀏覽器。有個數限制（各瀏覽器不同），一般不能超過20個</p>
+<ul>
+<li>大小約 4kb</li>
+<li>每次 request 時都會帶上</li>
+</ul>
+<h3>LocalStorage / SessionStorage</h3>
+<p>是HTML5提供兩種在客戶端儲存資料的方法，彌補了cookie儲存量小、不適用於大量資料本地儲存的問題。<br>
+從字面上的意思就可以看出，sessionStorage將資料儲存在session中，瀏覽器關閉也就沒了；而localStorage則一直將資料儲存在客戶端本地； 不管是sessionStorage，還是localStorage，可使用的API都相同。</p>
+<ul>
+<li>都是使用 key / value pair 的方式 給值或取值</li>
+<li>大小預設有 5mb</li>
+<li>每次 request 不會帶上</li>
+</ul>
+<h3>LocalStorage</h3>
+<blockquote>
+<p>不會過期，除非手動清除</p>
+</blockquote>
+<h3>SessionStorage</h3>
+<blockquote>
+<p>每次分頁或瀏覽器關掉後就會清除</p>
+</blockquote>
+<p>生命周期只存在瀏覽囂的 <strong>單一分頁</strong> ，也就是 <strong>另開新分頁的話</strong> ，又是一個 <strong>新的sessionStorage</strong> ，預設無逾期時間，除非關閉該分頁、關閉瀏覽器等，sessionStorage就會消失。</p>
+<h2>三者差異</h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>生命週期</strong></td>
+<td>可設定失效時間。 預設是關閉瀏覽器後失效</td>
+<td>除非被清除，否則永久保存</td>
+<td>關閉頁面或瀏覽器後被清除</td>
+</tr>
+<tr>
+<td><strong>大小</strong></td>
+<td>4K 左右</td>
+<td>一般為 5Mb</td>
+<td>一般為 5Mb</td>
+</tr>
+<tr>
+<td><strong>與Server溝通</strong></td>
+<td>每次都會攜帶在HTTP中， 保存過多數據會帶來效能問題</td>
+<td>僅在瀏覽器保存， 不參與Server的溝通</td>
+<td>僅在瀏覽器保存， 不參與Server的溝通</td>
+</tr>
+</tbody>
+</table>
+<h2>應用場景</h2>
+<h3>Cookie</h3>
+<p>比較常用的場景就是判斷用戶是否登錄<br>
+針對登錄過的用戶，服務器端會在他登錄時往Cookie 插入一段加密過的辨識碼，下次只要讀取這個值就可以判斷用戶是否登錄</p>
+<ul>
+<li>Session 管理<br>
+帳號登入、購物車、遊戲分數，或任何其他伺服器應該記住的資訊</li>
+<li>個人化<br>
+使用者設定、佈景主題，以及其他設定</li>
+<li>追蹤<br>
+記錄並分析使用者行為</li>
+</ul>
+<h3>LocalStorage</h3>
+<p>而另一方面 localStorage 代替了 Cookie 管理購物車的工作，同時也能勝任其他工作。比如說HTML遊戲通常會產生一些數據，localStorage 也很適合使用。</p>
+<h3>SessionStorage</h3>
+<p>如果遇到一些內容特別多的表單，為了提升用戶體驗，可能要把表單頁面拆分成多個子頁面，然後按照步驟引導用戶。這時候 sessionStorage 就可以發揮出效用。</p>
+<h2>安全考慮</h2>
+<p>並非所有數據都適合儲存在這些其中。因為只要網站中存有XSS 的風險，打開控制台，就可以隨意修改值，就能對你的localStorage 肆意妄為。所以千萬不要將敏感數據儲存在這其中。</p>
+<h2>參考資料</h2>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API" target="_blank" rel="external">Web Storage API - Web APIs | MDN</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Cookie" target="_blank" rel="external">Cookie - 維基百科</a></li>
+<li><a href="https://stackoverflow.com/questions/3718349/html5-localstorage-security" target="_blank" rel="external">HTML5 localStorage security - Stack Overflow</a></li>
+<li><a href="https://www.cnblogs.com/yuzhongwusan/archive/2011/12/19/2293347.html" target="_blank" rel="external">HTMl5的sessionStorage和localStorage</a></li>
+<li><a href="https://jerryzou.com/posts/cookie-and-web-storage/" target="_blank" rel="external">详说 Cookie, LocalStorage 与 SessionStorage | 咀嚼之味</a></li>
+</ol>
 
       
     </div>
@@ -386,7 +445,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -399,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/14/js-function-slice/" rel="next" title="slice()、splice()、split() 傻傻分不清">
-                <i class="fa fa-chevron-left"></i> slice()、splice()、split() 傻傻分不清
+              <a href="/2018/12/04/mocha-chai/" rel="next" title="前端單元測試入門【Mocha與chai】">
+                <i class="fa fa-chevron-left"></i> 前端單元測試入門【Mocha與chai】
               </a>
             
           </div>
@@ -408,10 +467,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/16/hexo-disqus/" rel="prev" title="Hexo 加入 Disqus 來留言吧">
-                Hexo 加入 Disqus 來留言吧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"><!--more-->手動截斷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">提供文章摘錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">自動形成摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">結語</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">LocalStorage / SessionStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">SessionStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">三者差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">應用場景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text">LocalStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.3.</span> <span class="nav-text">SessionStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">安全考慮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
             
 
           </div>
@@ -722,9 +777,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/06/15/hexo-more/';
-          this.page.identifier = '2017/06/15/hexo-more/';
-          this.page.title = 'Hexo 閱讀全文';
+          this.page.url = 'http://yoursite.com/2019/06/18/cookie-localstorage-sessionstorage/';
+          this.page.identifier = '2019/06/18/cookie-localstorage-sessionstorage/';
+          this.page.title = 'Cookie、LocalStorage、SessionStorage 差異';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://coding-xiao-dong-wu.disqus.com/embed.js';
