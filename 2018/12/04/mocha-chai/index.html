@@ -1,0 +1,847 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Unit Test," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="單元測試（Unit Test） 就是以程式中最小的邏輯單元寫測試程式，來驗證邏輯是否正確。一般來說，程式中最小的邏輯單元是函式(function)，或方法(method)。 為什麼要做 Unit Test？  防止改 A 壞 B，避免改一個壞一堆 指出問題、並顯示正確的是什麼，減少猜測時間 會先搞懂自己的code要做什麼。然後再讓它完成任務。 先寫測試強迫你寫code前先做規劃  Mocha簡介">
+<meta name="keywords" content="Unit Test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端單元測試入門【Mocha與chai】">
+<meta property="og:url" content="http://yoursite.com/2018/12/04/mocha-chai/index.html">
+<meta property="og:site_name" content="PG的前端碎念">
+<meta property="og:description" content="單元測試（Unit Test） 就是以程式中最小的邏輯單元寫測試程式，來驗證邏輯是否正確。一般來說，程式中最小的邏輯單元是函式(function)，或方法(method)。 為什麼要做 Unit Test？  防止改 A 壞 B，避免改一個壞一堆 指出問題、並顯示正確的是什麼，減少猜測時間 會先搞懂自己的code要做什麼。然後再讓它完成任務。 先寫測試強迫你寫code前先做規劃  Mocha簡介">
+<meta property="og:image" content="https://i.imgur.com/nDc06EN.png">
+<meta property="og:image" content="https://i.imgur.com/Wxs58kz.png">
+<meta property="og:image" content="https://i.imgur.com/YSirPJ4.png">
+<meta property="og:image" content="https://i.imgur.com/tCmjkMw.png">
+<meta property="og:image" content="https://i.imgur.com/yr7w4S8.png">
+<meta property="og:image" content="https://i.imgur.com/kf22vWA.png">
+<meta property="og:image" content="https://i.imgur.com/sqmJnge.png">
+<meta property="og:image" content="https://i.imgur.com/b8QHcSf.png">
+<meta property="og:image" content="https://i.imgur.com/3oYv3fI.png">
+<meta property="og:image" content="https://i.imgur.com/NZGSVIX.png">
+<meta property="og:updated_time" content="2019-06-25T17:17:59.536Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端單元測試入門【Mocha與chai】">
+<meta name="twitter:description" content="單元測試（Unit Test） 就是以程式中最小的邏輯單元寫測試程式，來驗證邏輯是否正確。一般來說，程式中最小的邏輯單元是函式(function)，或方法(method)。 為什麼要做 Unit Test？  防止改 A 壞 B，避免改一個壞一堆 指出問題、並顯示正確的是什麼，減少猜測時間 會先搞懂自己的code要做什麼。然後再讓它完成任務。 先寫測試強迫你寫code前先做規劃  Mocha簡介">
+<meta name="twitter:image" content="https://i.imgur.com/nDc06EN.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/04/mocha-chai/"/>
+
+
+
+
+
+  <title>前端單元測試入門【Mocha與chai】 | PG的前端碎念</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">PG的前端碎念</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Live the life you love</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/mocha-chai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peggy Zhan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/21999254">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PG的前端碎念">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">前端單元測試入門【Mocha與chai】</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-04T01:15:42+08:00">
+                2018-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/04/mocha-chai/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/04/mocha-chai/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>單元測試（Unit Test）</h2>
+<p>就是以程式中最小的邏輯單元寫測試程式，來驗證邏輯是否正確。一般來說，程式中最小的邏輯單元是函式(function)，或方法(method)。</p>
+<h2>為什麼要做 Unit Test？</h2>
+<ul>
+<li>防止改 A 壞 B，避免改一個壞一堆</li>
+<li>指出問題、並顯示正確的是什麼，減少猜測時間</li>
+<li>會先搞懂自己的code要做什麼。然後再讓它完成任務。</li>
+<li>先寫測試強迫你寫code前先做規劃</li>
+</ul>
+<h2>Mocha簡介</h2>
+<p>Mocha 是 JavaScript 的一種單元測試框架，使用 Mocha 我們就只需要專注在寫單元測試本身，然後讓 Mocha 去自動運行所有測試，並給出測試結果。</p>
+<h2>那我們就開始吧！</h2>
+<p>建立資料夾，輸入 npm init 建立 package.json</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir front_test</div><div class="line">cd front_test</div><div class="line">npm init</div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/nDc06EN.png" alt=""></p>
+<h2>主程式編寫</h2>
+<p>先從簡單的加法開始吧！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">add(x, y) = x + y</div></pre></td></tr></table></figure>
+<p>新增一個index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 加法function</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = add;</div></pre></td></tr></table></figure>
+<p>內容單純回傳 a+b，並且注意到最後一行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = add</div></pre></td></tr></table></figure>
+<p>意思是當其他檔案引入 index.js ，就等於給予 add 方法。</p>
+<h2>Mocha 的安裝與配置</h2>
+<p>全域安装 Mocha</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g mocha</div></pre></td></tr></table></figure>
+<p>項目中安裝 Mocha</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev mocha</div></pre></td></tr></table></figure>
+<p>-g : 全域<br>
+–save : 寫入 package.json<br>
+–dev : 開發用套件，程式上線時不會用到的套件</p>
+<p><img src="https://i.imgur.com/Wxs58kz.png" alt=""></p>
+<p>在package.json中加入下面脚本：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">    "test": "mocha"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接著就可以透過 npm test 執行 mocha 測試</p>
+<p><img src="https://i.imgur.com/YSirPJ4.png" alt=""></p>
+<p>而當你執行時會發現錯誤，並提示沒有 test 相關的檔案，所以我們就來新增測試檔。</p>
+<h2>新增測試檔</h2>
+<p><img src="https://i.imgur.com/tCmjkMw.png" alt=""></p>
+<p>如上圖所示，測試文件需要放在test目錄下， mocka 執行時會執行 test 目錄下的所有 js 文件(僅限 test 以下這層，對於 test/subtest 這層並不執行)</p>
+<p>add.test.js 命名加了一個 test 並不是硬性規定，只是為了好區分，add 的取名也是為了方便辨認。</p>
+<p>執行 npm test 看一下結果</p>
+<p><img src="https://i.imgur.com/yr7w4S8.png" alt=""></p>
+<p>成功執行出 hello world!</p>
+<p>將 add.test.js 代碼修改為</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> add = <span class="built_in">require</span>(<span class="string">'../index'</span>);</div><div class="line"></div><div class="line">describe(<span class="string">'測試add函數'</span>, ()=&gt; &#123;</div><div class="line">    it(<span class="string">'測試5+5預期10'</span>, ()=&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (add(<span class="number">5</span>, <span class="number">5</span>) !== <span class="number">10</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"兩數相加結果不為兩數和"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3>語法說明：</h3>
+<ul>
+<li>describe：描述狀態或圈出特定區塊，解釋測試的功能或 function（Test Suite）</li>
+<li>it：撰寫測試案例（Test Case）</li>
+</ul>
+<p>此時運行 npm test 得到以下結果</p>
+<p><img src="https://i.imgur.com/kf22vWA.png" alt=""></p>
+<p>此時若將主程式修改成錯誤</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b - <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = add;</div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/sqmJnge.png" alt=""></p>
+<p>就會跑出錯誤的警示</p>
+<h2>Mocha與斷言庫chai</h2>
+<p>在上面的例子中，測試失敗的回傳多少有點繁瑣，所以有了斷言庫的出現。<br>
+斷言庫（Assertion Library）是一種判斷工具，驗證執行結果是否符合預期，若實際結果和預測不同，就是測到 bug 。</p>
+<h2>安裝chai</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev chai</div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/b8QHcSf.png" alt=""></p>
+<p>接著讓我們用 chai 修改一下上面的 add.test.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> expect = <span class="built_in">require</span>(<span class="string">'chai'</span>).expect;</div><div class="line"><span class="keyword">const</span> add = <span class="built_in">require</span>(<span class="string">'../index'</span>);</div><div class="line"></div><div class="line"></div><div class="line">describe(<span class="string">'測試add函數'</span>, () =&gt; &#123;</div><div class="line">    it(<span class="string">'測試5+5預期10'</span>, () =&gt; &#123;</div><div class="line">        expect(add(<span class="number">5</span>, <span class="number">5</span>)).to.be.equal(<span class="number">10</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>第一行載入的斷言式expect，然後 describe 就寫測試什麼，it 適合寫測試實例，這邊可以寫拿什麼測試。<br>
+上面語法很接近白話，expect(期待)一個表達式的結果equal(等於)一個表達式。執行 npm test</p>
+<p><img src="https://i.imgur.com/3oYv3fI.png" alt=""></p>
+<p>可以看出圖中的斷言庫還顯示出期望的綠色結果10和實際的紅色結果0。</p>
+<p>發現錯誤後將原本的主程式修改回正確，再執行一次 npm test</p>
+<p><img src="https://i.imgur.com/NZGSVIX.png" alt=""></p>
+<p>修正後，測試就過關了！</p>
+<h1>結語</h1>
+<ol>
+<li>寫測試貌似會增加工時，但實際所可以避免的 Bug 以及從中學習到的經驗卻是更多的。</li>
+<li>先寫測試再寫程式，可以從需求得知結果，之後寫主程式也有綠勾勾作為過關標準。</li>
+<li>測試並不是萬能的，但他能盡可能地，幫我們的程式想多種可能的結果。</li>
+</ol>
+<h1>參考資料</h1>
+<ul>
+<li><a href="https://cythilya.github.io/2017/09/17/unit-test-with-mocha-chai-and-sinon/" target="_blank" rel="external">單元測試：Mocha、Chai 和 Sinon</a></li>
+<li><a href="https://medium.com/html-test/%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B-%E6%B8%AC%E8%A9%A6%E5%90%A7-%E5%89%8D%E7%AB%AF-c32c29df875d" target="_blank" rel="external">從零開始: 測試吧! 前端</a></li>
+<li><a href="https://juejin.im/entry/5a9f9d6af265da23a0491a2a" target="_blank" rel="external">【前端单元测试入门01】Mocha与chai</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Unit-Test/" rel="tag"># Unit Test</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/19/scss-2/" rel="next" title="SASS入門(初階功能)">
+                <i class="fa fa-chevron-left"></i> SASS入門(初階功能)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/21999254"
+               alt="Peggy Zhan" />
+          <p class="site-author-name" itemprop="name">Peggy Zhan</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">標籤</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bebeboboha" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/chan.pei.chi" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook-official"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://medium.com/@bebebobohaha" target="_blank" title="Medium">
+                  
+                    <i class="fa fa-fw fa-medium"></i>
+                  
+                  Medium
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">單元測試（Unit Test）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">為什麼要做 Unit Test？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Mocha簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">那我們就開始吧！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">主程式編寫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Mocha 的安裝與配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">新增測試檔</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">7.1.</span> <span class="nav-text">語法說明：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">Mocha與斷言庫chai</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">安裝chai</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">結語</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">參考資料</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Peggy Zhan</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://coding-xiao-dong-wu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/12/04/mocha-chai/';
+          this.page.identifier = '2018/12/04/mocha-chai/';
+          this.page.title = '前端單元測試入門【Mocha與chai】';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://coding-xiao-dong-wu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

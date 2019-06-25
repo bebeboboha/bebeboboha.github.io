@@ -257,6 +257,212 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/04/mocha-chai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peggy Zhan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/21999254">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PG的前端碎念">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/04/mocha-chai/" itemprop="url">前端單元測試入門【Mocha與chai】</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-04T01:15:42+08:00">
+                2018-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/04/mocha-chai/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/04/mocha-chai/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>單元測試（Unit Test）</h2>
+<p>就是以程式中最小的邏輯單元寫測試程式，來驗證邏輯是否正確。一般來說，程式中最小的邏輯單元是函式(function)，或方法(method)。</p>
+<h2>為什麼要做 Unit Test？</h2>
+<ul>
+<li>防止改 A 壞 B，避免改一個壞一堆</li>
+<li>指出問題、並顯示正確的是什麼，減少猜測時間</li>
+<li>會先搞懂自己的code要做什麼。然後再讓它完成任務。</li>
+<li>先寫測試強迫你寫code前先做規劃</li>
+</ul>
+<h2>Mocha簡介</h2>
+<p>Mocha 是 JavaScript 的一種單元測試框架，使用 Mocha 我們就只需要專注在寫單元測試本身，然後讓 Mocha 去自動運行所有測試，並給出測試結果。</p>
+<h2>那我們就開始吧！</h2>
+<p>建立資料夾，輸入 npm init 建立 package.json</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir front_test</div><div class="line">cd front_test</div><div class="line">npm init</div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/nDc06EN.png" alt=""></p>
+<h2>主程式編寫</h2>
+<p>先從簡單的加法開始吧！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">add(x, y) = x + y</div></pre></td></tr></table></figure>
+<p>新增一個index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 加法function</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = add;</div></pre></td></tr></table></figure>
+<p>內容單純回傳 a+b，並且注意到最後一行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = add</div></pre></td></tr></table></figure>
+<p>意思是當其他檔案引入 index.js ，就等於給予 add 方法。</p>
+<h2>Mocha 的安裝與配置</h2>
+<p>全域安装 Mocha</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g mocha</div></pre></td></tr></table></figure>
+<p>項目中安裝 Mocha</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev mocha</div></pre></td></tr></table></figure>
+<p>-g : 全域<br>
+–save : 寫入 package.json<br>
+–dev : 開發用套件，程式上線時不會用到的套件</p>
+<p><img src="https://i.imgur.com/Wxs58kz.png" alt=""></p>
+<p>在package.json中加入下面脚本：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">    "test": "mocha"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接著就可以透過 npm test 執行 mocha 測試</p>
+<p><img src="https://i.imgur.com/YSirPJ4.png" alt=""></p>
+<p>而當你執行時會發現錯誤，並提示沒有 test 相關的檔案，所以我們就來新增測試檔。</p>
+<h2>新增測試檔</h2>
+<p><img src="https://i.imgur.com/tCmjkMw.png" alt=""></p>
+<p>如上圖所示，測試文件需要放在test目錄下， mocka 執行時會執行 test 目錄下的所有 js 文件(僅限 test 以下這層，對於 test/subtest 這層並不執行)</p>
+<p>add.test.js 命名加了一個 test 並不是硬性規定，只是為了好區分，add 的取名也是為了方便辨認。</p>
+<p>執行 npm test 看一下結果</p>
+<p><img src="https://i.imgur.com/yr7w4S8.png" alt=""></p>
+<p>成功執行出 hello world!</p>
+<p>將 add.test.js 代碼修改為</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> add = <span class="built_in">require</span>(<span class="string">'../index'</span>);</div><div class="line"></div><div class="line">describe(<span class="string">'測試add函數'</span>, ()=&gt; &#123;</div><div class="line">    it(<span class="string">'測試5+5預期10'</span>, ()=&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (add(<span class="number">5</span>, <span class="number">5</span>) !== <span class="number">10</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"兩數相加結果不為兩數和"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3>語法說明：</h3>
+<ul>
+<li>describe：描述狀態或圈出特定區塊，解釋測試的功能或 function（Test Suite）</li>
+<li>it：撰寫測試案例（Test Case）</li>
+</ul>
+<p>此時運行 npm test 得到以下結果</p>
+<p><img src="https://i.imgur.com/kf22vWA.png" alt=""></p>
+<p>此時若將主程式修改成錯誤</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b - <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = add;</div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/sqmJnge.png" alt=""></p>
+<p>就會跑出錯誤的警示</p>
+<h2>Mocha與斷言庫chai</h2>
+<p>在上面的例子中，測試失敗的回傳多少有點繁瑣，所以有了斷言庫的出現。<br>
+斷言庫（Assertion Library）是一種判斷工具，驗證執行結果是否符合預期，若實際結果和預測不同，就是測到 bug 。</p>
+<h2>安裝chai</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev chai</div></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/b8QHcSf.png" alt=""></p>
+<p>接著讓我們用 chai 修改一下上面的 add.test.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> expect = <span class="built_in">require</span>(<span class="string">'chai'</span>).expect;</div><div class="line"><span class="keyword">const</span> add = <span class="built_in">require</span>(<span class="string">'../index'</span>);</div><div class="line"></div><div class="line"></div><div class="line">describe(<span class="string">'測試add函數'</span>, () =&gt; &#123;</div><div class="line">    it(<span class="string">'測試5+5預期10'</span>, () =&gt; &#123;</div><div class="line">        expect(add(<span class="number">5</span>, <span class="number">5</span>)).to.be.equal(<span class="number">10</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>第一行載入的斷言式expect，然後 describe 就寫測試什麼，it 適合寫測試實例，這邊可以寫拿什麼測試。<br>
+上面語法很接近白話，expect(期待)一個表達式的結果equal(等於)一個表達式。執行 npm test</p>
+<p><img src="https://i.imgur.com/3oYv3fI.png" alt=""></p>
+<p>可以看出圖中的斷言庫還顯示出期望的綠色結果10和實際的紅色結果0。</p>
+<p>發現錯誤後將原本的主程式修改回正確，再執行一次 npm test</p>
+<p><img src="https://i.imgur.com/NZGSVIX.png" alt=""></p>
+<p>修正後，測試就過關了！</p>
+<h1>結語</h1>
+<ol>
+<li>寫測試貌似會增加工時，但實際所可以避免的 Bug 以及從中學習到的經驗卻是更多的。</li>
+<li>先寫測試再寫程式，可以從需求得知結果，之後寫主程式也有綠勾勾作為過關標準。</li>
+<li>測試並不是萬能的，但他能盡可能地，幫我們的程式想多種可能的結果。</li>
+</ol>
+<h1>參考資料</h1>
+<ul>
+<li><a href="https://cythilya.github.io/2017/09/17/unit-test-with-mocha-chai-and-sinon/" target="_blank" rel="external">單元測試：Mocha、Chai 和 Sinon</a></li>
+<li><a href="https://medium.com/html-test/%E5%BE%9E%E9%9B%B6%E9%96%8B%E5%A7%8B-%E6%B8%AC%E8%A9%A6%E5%90%A7-%E5%89%8D%E7%AB%AF-c32c29df875d" target="_blank" rel="external">從零開始: 測試吧! 前端</a></li>
+<li><a href="https://juejin.im/entry/5a9f9d6af265da23a0491a2a" target="_blank" rel="external">【前端单元测试入门01】Mocha与chai</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/19/scss-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1212,7 +1418,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -1225,7 +1431,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">標籤</span>
               
             </div>
